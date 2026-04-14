@@ -169,33 +169,20 @@
         <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%2300d4ff\' fill-opacity=\'0.05\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
     </div>
     
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-left">
         <div class="grid lg:grid-cols-2 gap-12 items-center">
-            <div class="space-y-8 text-left">
+            <div class="space-y-8">
                 <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-sm font-mono">
                     <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
                     New Arduino Uno R4 WiFi in Stock
                 </div>
-                
-                <h1 class="text-5xl lg:text-7xl font-bold leading-tight text-white">
-                    Build Your <br>
-                    <span class="gradient-text neon-text">Next Project</span>
-                </h1>
-                
-                <p class="text-xl text-gray-400 max-w-lg leading-relaxed">
-                    Premium Arduino components, sensors, and modules for makers, engineers, and hobbyists. Fast shipping across Sri Lanka.
-                </p>
-                
+                <h1 class="text-5xl lg:text-7xl font-bold leading-tight text-white">Build Your <br><span class="gradient-text neon-text">Next Project</span></h1>
+                <p class="text-xl text-gray-400 max-w-lg leading-relaxed">Premium Arduino components, sensors, and modules for makers. Fast shipping across Sri Lanka.</p>
                 <div class="flex flex-wrap gap-4">
-                    <button onclick="openInterface()" class="px-8 py-4 bg-gradient-to-r from-cyan-500 to-cyan-600 hover:from-cyan-400 hover:to-cyan-500 text-black font-bold rounded-lg transition-all transform hover:scale-105 shadow-lg shadow-cyan-500/25">
-                        Start Building
-                    </button>
-                    <button onclick="openInterface()" class="px-8 py-4 bg-white/5 border border-white/20 hover:border-cyan-500 text-white font-medium rounded-lg transition-all hover:bg-white/10">
-                        View Kits
-                    </button>
+                    <button onclick="openInterface()" class="px-8 py-4 bg-gradient-to-r from-cyan-500 to-cyan-600 text-black font-bold rounded-lg transition-all transform hover:scale-105">Start Building</button>
+                    <button onclick="openInterface()" class="px-8 py-4 bg-white/5 border border-white/20 text-white font-medium rounded-lg hover:bg-white/10">View Kits</button>
                 </div>
             </div>
-            
             <div class="relative">
                 <div class="absolute inset-0 bg-gradient-to-r from-cyan-500/20 to-emerald-500/20 rounded-3xl blur-3xl"></div>
                 <div class="relative glass rounded-2xl p-8 neon-border border border-white/10">
@@ -207,9 +194,7 @@
 </section>
 
 <div id="mainInterface" class="fixed inset-0 z-[100] hidden items-center justify-center p-4 bg-black/90 backdrop-blur-lg">
-    <div class="relative w-full max-w-3xl bg-[#0a0f1a] border border-cyan-500/30 rounded-3xl p-8 shadow-2xl overflow-hidden min-h-[400px]">
-        
-        <div class="absolute -top-24 -right-24 w-48 h-48 bg-cyan-500/10 blur-3xl"></div>
+    <div class="relative w-full max-w-3xl bg-[#0a0f1a] border border-cyan-500/30 rounded-3xl p-8 shadow-2xl overflow-hidden min-h-[500px]">
         
         <button onclick="closeInterface()" class="absolute top-6 right-6 text-gray-400 hover:text-red-400 transition-colors z-50">
             <i class="fas fa-times text-2xl"></i>
@@ -218,20 +203,14 @@
         <div id="layer1" class="relative z-10 text-left">
             <h2 class="text-3xl font-bold text-white mb-2">Explore <span class="text-cyan-400">Nexus Robotics</span></h2>
             <p class="text-gray-400 mb-8">අවශ්‍ය ප්‍රවර්ගය තෝරා ඉදිරියට යන්න.</p>
-
             <div class="grid md:grid-cols-2 gap-6">
                 <div onclick="showLayer(2)" class="group p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-cyan-500/50 transition-all cursor-pointer">
-                    <div class="w-12 h-12 rounded-lg bg-cyan-500/20 flex items-center justify-center mb-4 text-cyan-400 group-hover:scale-110 transition-transform">
-                        <i class="fas fa-microchip text-xl"></i>
-                    </div>
+                    <div class="w-12 h-12 rounded-lg bg-cyan-500/20 flex items-center justify-center mb-4 text-cyan-400"><i class="fas fa-microchip text-xl"></i></div>
                     <h3 class="text-white font-bold text-lg mb-2">Components</h3>
                     <p class="text-gray-500 text-sm">Sensors, Modules, and Boards.</p>
                 </div>
-
                 <div class="group p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-emerald-500/50 transition-all cursor-pointer">
-                    <div class="w-12 h-12 rounded-lg bg-emerald-500/20 flex items-center justify-center mb-4 text-emerald-400 group-hover:scale-110 transition-transform">
-                        <i class="fas fa-box-open text-xl"></i>
-                    </div>
+                    <div class="w-12 h-12 rounded-lg bg-emerald-500/20 flex items-center justify-center mb-4 text-emerald-400"><i class="fas fa-box-open text-xl"></i></div>
                     <h3 class="text-white font-bold text-lg mb-2">Starter Kits</h3>
                     <p class="text-gray-500 text-sm">Everything you need to begin.</p>
                 </div>
@@ -240,100 +219,101 @@
 
         <div id="layer2" class="hidden relative z-10 text-left">
             <button onclick="showLayer(1)" class="flex items-center gap-2 text-cyan-400 mb-6 hover:text-cyan-300 transition-colors">
-                <i class="fas fa-arrow-left"></i> Categories 
+                <i class="fas fa-arrow-left"></i> Categories ආපසු
             </button>
-            
             <h2 class="text-2xl font-bold text-white mb-6">Arduino <span class="text-cyan-400">Components</span></h2>
-            
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div class="flex items-center justify-between p-4 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 overflow-y-auto max-h-[350px] pr-2">
+                <div onclick="showDetails('uno')" class="flex items-center justify-between p-4 rounded-xl bg-white/5 border border-white/10 hover:border-cyan-500/50 cursor-pointer transition-all">
                     <div class="flex items-center gap-4">
-                        <div class="w-10 h-10 bg-cyan-500/10 rounded flex items-center justify-center text-cyan-400">
-                            <i class="fas fa-microchip"></i>
-                        </div>
+                        <i class="fas fa-microchip text-cyan-400"></i>
                         <span class="text-white font-medium">Arduino Uno R3</span>
                     </div>
-                    <span class="text-cyan-400 font-bold">Rs. 2,000</span>
+                    <i class="fas fa-chevron-right text-gray-600"></i>
                 </div>
-
-                <div class="flex items-center justify-between p-4 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all">
+                <div onclick="showDetails('ultrasonic')" class="flex items-center justify-between p-4 rounded-xl bg-white/5 border border-white/10 hover:border-cyan-500/50 cursor-pointer transition-all">
                     <div class="flex items-center gap-4">
-                        <div class="w-10 h-10 bg-cyan-500/10 rounded flex items-center justify-center text-cyan-400">
-                            <i class="fas fa-satellite-dish"></i>
-                        </div>
+                        <i class="fas fa-broadcast-tower text-cyan-400"></i>
                         <span class="text-white font-medium">Ultrasonic Sensor</span>
                     </div>
-                    <span class="text-cyan-400 font-bold">Rs. 400</span>
+                    <i class="fas fa-chevron-right text-gray-600"></i>
                 </div>
-                <div class="flex items-center justify-between p-4 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all">
-                    <div class="flex items-center gap-4">
-                        <div class="w-10 h-10 bg-cyan-500/10 rounded flex items-center justify-center text-cyan-400">
-                            <i class="fas fa-satellite-dish"></i>
-                        </div>
-                        <span class="text-white font-medium">ESP 32 Board</span>
-                    </div>
-                    <span class="text-cyan-400 font-bold">Rs.1800</span>
-                </div>
-                     <div class="flex items-center justify-between p-4 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all">
-                    <div class="flex items-center gap-4">
-                        <div class="w-10 h-10 bg-cyan-500/10 rounded flex items-center justify-center text-cyan-400">
-                            <i class="fas fa-satellite-dish"></i>
-                        </div>
-                        <span class="text-white font-medium">L298N Motor Driver</span>
-                    </div>
-                    <span class="text-cyan-400 font-bold">Rs.450</span>
-                </div>
-                   <div class="flex items-center justify-between p-4 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all">
-                    <div class="flex items-center gap-4">
-                        <div class="w-10 h-10 bg-cyan-500/10 rounded flex items-center justify-center text-cyan-400">
-                            <i class="fas fa-satellite-dish"></i>
-                        </div>
-                        <span class="text-white font-medium">HC-05 Bluetooth Module</span>
-                    </div>
-                    <span class="text-cyan-400 font-bold">Rs.850</span>
-                </div>
-                
-                </div>
+            </div>
         </div>
 
+        <div id="layer3" class="hidden relative z-10 text-left">
+            <button onclick="showLayer(2)" class="flex items-center gap-2 text-cyan-400 mb-6 hover:text-cyan-300">
+                <i class="fas fa-arrow-left"></i> Components ලිස්ට් එකට
+            </button>
+            
+            <div id="productDetailsContent" class="space-y-6">
+                </div>
+        </div>
     </div>
 </div>
 
 <script>
     const modal = document.getElementById('mainInterface');
-    const layer1 = document.getElementById('layer1');
-    const layer2 = document.getElementById('layer2');
+    const layers = [document.getElementById('layer1'), document.getElementById('layer2'), document.getElementById('layer3')];
+    const detailsContainer = document.getElementById('productDetailsContent');
+
+    const productData = {
+        uno: {
+            name: "Arduino Uno R3",
+            price: "Rs. 2,000",
+            img: "https://www.arduino.cc/en/uploads/Main/ArduinoUno_Front.jpg",
+            desc: "The Arduino Uno is a microcontroller board based on the ATmega328P. It has 14 digital input/output pins, 6 analog inputs, and a 16 MHz quartz crystal.",
+            specs: ["Microcontroller: ATmega328P", "Operating Voltage: 5V", "Input Voltage: 7-12V"]
+        },
+        ultrasonic: {
+            name: "Ultrasonic Sensor (HC-SR04)",
+            price: "Rs. 400",
+            img: "https://components101.com/sites/default/files/component_pin/HC-SR04-Ultrasonic-Sensor-Pinout.jpg",
+            desc: "HC-SR04 ultrasonic sensor provides 2cm-400cm non-contact measurement function. The module includes ultrasonic transmitters, receiver and control circuit.",
+            specs: ["Range: 2cm to 400cm", "Accuracy: 3mm", "Working Current: 15mA"]
+        }
+    };
 
     function openInterface() {
-        modal.classList.remove('hidden');
-        modal.classList.add('flex');
-        showLayer(1); // සෑම විටම මුලින්ම පෙන්වන්න
+        modal.classList.replace('hidden', 'flex');
+        showLayer(1);
         document.body.style.overflow = 'hidden';
     }
 
     function closeInterface() {
-        modal.classList.add('hidden');
-        modal.classList.remove('flex');
+        modal.classList.replace('flex', 'hidden');
         document.body.style.overflow = 'auto';
     }
 
-    function showLayer(layerNumber) {
-        if (layerNumber === 1) {
-            layer1.classList.remove('hidden');
-            layer2.classList.add('hidden');
-        } else if (layerNumber === 2) {
-            layer1.classList.add('hidden');
-            layer2.classList.remove('hidden');
-        }
+    function showLayer(num) {
+        layers.forEach((l, i) => l.classList.toggle('hidden', i !== num - 1));
     }
 
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            closeInterface();
-        }
+    function showDetails(id) {
+        const item = productData[id];
+        detailsContainer.innerHTML = `
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-white/5 rounded-2xl p-4 flex items-center justify-center border border-white/10">
+                    <img src="${item.img}" class="max-h-48 rounded-lg shadow-lg">
+                </div>
+                <div class="space-y-4">
+                    <h2 class="text-3xl font-bold text-white">${item.name}</h2>
+                    <p class="text-2xl text-cyan-400 font-bold">${item.price}</p>
+                    <p class="text-gray-400 text-sm leading-relaxed">${item.desc}</p>
+                    <div class="space-y-2">
+                        <p class="text-white font-semibold">Key Specs:</p>
+                        <ul class="text-gray-500 text-xs list-disc pl-4">
+                            ${item.specs.map(s => `<li>${s}</li>`).join('')}
+                        </ul>
+                    </div>
+                    <button class="w-full py-3 bg-cyan-500 text-black font-bold rounded-xl hover:bg-cyan-400 transition-all mt-4">Add to Cart</button>
+                </div>
+            </div>
+        `;
+        showLayer(3);
     }
+
+    window.onclick = e => { if(e.target == modal) closeInterface(); }
 </script>
-
     <!-- Categories Sidebar & Products -->
     <section id="products" class="py-20 bg-tech-dark">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
