@@ -421,53 +421,196 @@
 
             <div class="grid md:grid-cols-3 gap-8">
                 <!-- Kit 1 -->
-                <div class="glass rounded-2xl overflow-hidden product-card group">
-                    <div class="relative h-64 overflow-hidden">
-                        <img src="https://i.ytimg.com/vi/hI0UBvpuRTw/maxresdefault.jpg">
-                        <div class="absolute top-4 right-4 bg-emerald-500 text-black text-xs font-bold px-3 py-1 rounded-full">SAVE 20%</div>
+              <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus Robotics | Yasith Hasanka</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .hero-bg { background-color: #050810; }
+        .gradient-text { background: linear-gradient(to right, #22d3ee, #10b981); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(10px); }
+        .neon-text { text-shadow: 0 0 10px rgba(6, 182, 212, 0.5); }
+        .product-card:hover { transform: translateY(-5px); transition: all 0.3s ease; }
+    </style>
+</head>
+<body class="bg-[#050810] text-white font-sans">
+
+<section class="relative pt-20 pb-10 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+        <h1 class="text-5xl font-bold mb-6">Build Your <span class="gradient-text neon-text">Next Project</span></h1>
+        
+        <div class="max-w-sm mx-auto mt-12">
+            <div class="glass rounded-2xl overflow-hidden product-card group cursor-pointer border border-white/10" onclick="openDetails('Bluetooth Robot Car Kit', 'kit')">
+                <div class="relative h-56 overflow-hidden">
+                    <img src="https://i.ytimg.com/vi/hI0UBvpuRTw/maxresdefault.jpg" class="w-full h-full object-cover">
+                    <div class="absolute top-4 right-4 bg-emerald-500 text-black text-xs font-bold px-3 py-1 rounded-full">SAVE 20%</div>
+                </div>
+                <div class="p-6 text-left">
+                    <div class="flex items-center gap-2 mb-2">
+                        <span class="text-xs font-mono text-cyan-400 bg-cyan-400/10 px-2 py-1 rounded">BEGINNER</span>
+                        <span class="text-xs text-gray-500">15+ Components</span>
                     </div>
-                    <div class="p-6">
-                        <div class="flex items-center gap-2 mb-2">
-                            <span class="text-xs font-mono text-cyan-400 bg-cyan-400/10 px-2 py-1 rounded">BEGINNER</span>
-                            <span class="text-xs text-gray-500">15+ Components</span>
+                    <h3 class="text-xl font-bold mb-2 text-white">Bluetooth Robot Car Kit</h3>
+                    <p class="text-gray-400 text-sm mb-4 line-clamp-2">Complete kit with L298N driver, HC-05 module, chassis, and code.</p>
+                    
+                    <div class="flex items-center justify-between mb-4">
+                        <div>
+                            <span class="text-2xl font-bold text-white">Rs. 2,000</span>
+                            <span class="text-sm text-gray-500 line-through ml-2">Rs. 2,500</span>
                         </div>
-                        <h3 class="text-xl font-bold mb-2 text-white">Bluetooth Robot Car Kit</h3>
-                        <p class="text-gray-400 text-sm mb-4">Complete kit with L298N driver, HC-05 module, chassis, wheels, and Arduino code included.</p>
-                        
-                        <div class="flex items-center justify-between mb-4">
-                            <div>
-                                <span class="text-2xl font-bold text-white">Rs. 2,000</span>
-                                <span class="text-sm text-gray-500 line-through ml-2">Rs. 2,500</span>
-                            </div>
-                            <div class="flex text-yellow-400 text-sm">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                        </div>
+                    </div>
+                    <button class="w-full py-3 bg-cyan-500 text-black font-bold rounded-lg hover:bg-cyan-400 transition-all">
+                        View Details
+                    </button>
+                </div>
+            </div>
+        </div>
 
-                        <div class="space-y-2 mb-4">
-                            <div class="flex items-center gap-2 text-xs text-gray-400">
-                                <i class="fas fa-check text-emerald-500"></i>
-                                <span>Pre-written Arduino code</span>
-                            </div>
-                            <div class="flex items-center gap-2 text-xs text-gray-400">
-                                <i class="fas fa-check text-emerald-500"></i>
-                                <span>Wiring diagram included</span>
-                            </div>
-                            <div class="flex items-center gap-2 text-xs text-gray-400">
-                                <i class="fas fa-check text-emerald-500"></i>
-                                <span>Android app provided</span>
-                            </div>
-                        </div>
+        <button onclick="openInterface()" class="mt-12 px-8 py-4 border border-cyan-500/50 rounded-full text-cyan-400 hover:bg-cyan-500/10 transition-all">
+            Open Full Store Menu
+        </button>
+    </div>
+</section>
 
-                        <button onclick="addToCart('Bluetooth Robot Car Kit', 2000)" class="w-full py-3 bg-gradient-to-r from-cyan-600 to-cyan-500 hover:from-cyan-500 hover:to-cyan-400 text-black font-bold rounded-lg transition-all">
-                            Add to Cart
-                        </button>
+<div id="mainInterface" class="fixed inset-0 z-[100] hidden items-center justify-center p-4 bg-black/90 backdrop-blur-lg">
+    <div class="relative w-full max-w-3xl bg-[#0a0f1a] border border-cyan-500/30 rounded-3xl p-8 shadow-2xl overflow-hidden min-h-[500px]">
+        
+        <button onclick="closeInterface()" class="absolute top-6 right-6 text-gray-400 hover:text-red-400 z-50"><i class="fas fa-times text-2xl"></i></button>
+
+        <div id="layer1" class="relative z-10">
+            <h2 class="text-3xl font-bold mb-2">Explore <span class="text-cyan-400">Nexus Robotics</span></h2>
+            <p class="text-gray-400 mb-8">අවශ්‍ය ප්‍රවර්ගය තෝරා ඉදිරියට යන්න.</p>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div onclick="showLayer(2)" class="group p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-cyan-500 transition-all cursor-pointer">
+                    <i class="fas fa-microchip text-3xl text-cyan-400 mb-4"></i>
+                    <h3 class="font-bold text-lg">Components</h3>
+                    <p class="text-gray-500 text-sm">Sensors, Modules, and Boards.</p>
+                </div>
+                <div onclick="showLayer('kits')" class="group p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-emerald-500 transition-all cursor-pointer">
+                    <i class="fas fa-box-open text-3xl text-emerald-400 mb-4"></i>
+                    <h3 class="font-bold text-lg">Starter Kits</h3>
+                    <p class="text-gray-500 text-sm">Everything you need to begin.</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="layer2" class="hidden relative z-10">
+            <button onclick="showLayer(1)" class="text-cyan-400 mb-6 hover:underline"><i class="fas fa-arrow-left"></i> Back</button>
+            <h2 class="text-2xl font-bold mb-6 text-cyan-400">Available Components</h2>
+            <div id="componentsList" class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-h-[300px] overflow-y-auto pr-2">
+                </div>
+        </div>
+
+        <div id="layerKits" class="hidden relative z-10">
+            <button onclick="showLayer(1)" class="text-emerald-400 mb-6 hover:underline"><i class="fas fa-arrow-left"></i> Back</button>
+            <h2 class="text-2xl font-bold mb-6 text-emerald-400">Starter Kits</h2>
+            <div id="kitsList" class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-h-[300px] overflow-y-auto pr-2">
+                </div>
+        </div>
+
+        <div id="layer3" class="hidden relative z-10">
+            <button id="detailBackBtn" class="text-cyan-400 mb-6 hover:underline"><i class="fas fa-arrow-left"></i> Back</button>
+            <div class="flex flex-col md:flex-row gap-8 items-start">
+                <div class="w-full md:w-1/3 aspect-square bg-white/5 rounded-2xl flex items-center justify-center border border-white/10">
+                    <i id="detailIcon" class="fas text-6xl text-cyan-400"></i>
+                </div>
+                <div class="flex-1">
+                    <h2 id="detailName" class="text-3xl font-bold mb-2"></h2>
+                    <p id="detailPrice" class="text-2xl text-cyan-400 font-mono mb-4"></p>
+                    <div class="p-4 bg-white/5 rounded-xl border border-white/10">
+                        <h4 class="text-xs font-bold text-gray-500 uppercase mb-2">Product Details</h4>
+                        <div id="detailDesc" class="text-gray-300 text-sm leading-relaxed whitespace-pre-line"></div>
                     </div>
                 </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    const modal = document.getElementById('mainInterface');
+    
+    // Components Data
+    const components = {
+        "Arduino Uno R3": { price: "Rs. 2,000", icon: "fa-microchip", desc: "High quality ATmega328P based board. Ideal for all robotics projects." },
+        "Ultrasonic Sensor": { price: "Rs. 400", icon: "fa-satellite-dish", desc: "HC-SR04 sensor to measure distance from 2cm to 400cm." },
+        "ESP 32 Board": { price: "Rs. 1,800", icon: "fa-wifi", desc: "WiFi and Bluetooth dual mode chip for IoT projects." }
+    };
+
+    // Starter Kits Data
+    const starterKits = {
+        "Bluetooth Robot Car Kit": { 
+            price: "Rs. 2,000", 
+            icon: "fa-car", 
+            desc: "මෙම Kit එක මගින් ස්මාර්ට් ජංගම දුරකථනයෙන් පාලනය කළ හැකි රොබෝ රථයක් සාදාගත හැකිය.\n\nඇතුළත් ද්‍රව්‍ය:\n• Arduino Uno R3\n• L298N Motor Driver\n• HC-05 Bluetooth Module\n• Robot Chassis & Motors\n\nනොමිලේ ලැබෙන දේ:\n• සම්පූර්ණ Arduino Code එක\n• Wiring Diagram එක\n• Android App එක" 
+        },
+        "Basic Arduino Kit": { price: "Rs. 4,500", icon: "fa-box-open", desc: "All basic sensors and components to start learning Arduino." }
+    };
+
+    function openInterface() {
+        modal.classList.replace('hidden', 'flex');
+        showLayer(1);
+        renderLists();
+    }
+
+    function closeInterface() {
+        modal.classList.replace('flex', 'hidden');
+        document.body.style.overflow = 'auto';
+    }
+
+    function renderLists() {
+        // Components List
+        document.getElementById('componentsList').innerHTML = Object.keys(components).map(name => `
+            <div onclick="openDetails('${name}', 'comp')" class="flex justify-between p-4 bg-white/5 border border-white/10 rounded-xl cursor-pointer hover:bg-cyan-500/10 transition-all">
+                <span>${name}</span><span class="text-cyan-400 font-bold">${components[name].price}</span>
+            </div>
+        `).join('');
+
+        // Kits List
+        document.getElementById('kitsList').innerHTML = Object.keys(starterKits).map(name => `
+            <div onclick="openDetails('${name}', 'kit')" class="flex justify-between p-4 bg-white/5 border border-white/10 rounded-xl cursor-pointer hover:bg-emerald-500/10 transition-all">
+                <span>${name}</span><span class="text-emerald-400 font-bold">${starterKits[name].price}</span>
+            </div>
+        `).join('');
+    }
+
+    function showLayer(type) {
+        document.getElementById('layer1').classList.add('hidden');
+        document.getElementById('layer2').classList.add('hidden');
+        document.getElementById('layerKits').classList.add('hidden');
+        document.getElementById('layer3').classList.add('hidden');
+
+        if (type === 1) document.getElementById('layer1').classList.remove('hidden');
+        else if (type === 2) document.getElementById('layer2').classList.remove('hidden');
+        else if (type === 'kits') document.getElementById('layerKits').classList.remove('hidden');
+        else if (type === 3) document.getElementById('layer3').classList.remove('hidden');
+    }
+
+    function openDetails(name, type) {
+        const data = type === 'comp' ? components[name] : starterKits[name];
+        
+        document.getElementById('detailName').innerText = name;
+        document.getElementById('detailPrice').innerText = data.price;
+        document.getElementById('detailDesc').innerText = data.desc;
+        document.getElementById('detailIcon').className = `fas ${data.icon} text-6xl ${type === 'comp' ? 'text-cyan-400' : 'text-emerald-400'}`;
+        
+        const backBtn = document.getElementById('detailBackBtn');
+        backBtn.onclick = () => showLayer(type === 'comp' ? 2 : 'kits');
+        
+        // Show the interface if it was closed
+        modal.classList.replace('hidden', 'flex');
+        showLayer(3);
+    }
+
+    window.onclick = (e) => { if (e.target == modal) closeInterface(); }
+</script>
+</body>
+</html>
 
                 <!-- Kit 2 -->
                 <div class="glass rounded-2xl overflow-hidden product-card group">
