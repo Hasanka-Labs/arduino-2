@@ -235,7 +235,7 @@
         </button>
 
         <div class="relative z-10">
-            <h2 class="text-3xl font-bold text-white mb-2">Explore <span class="text-cyan-400">Hasanka Labs</span></h2>
+            <h2 class="text-3xl font-bold text-white mb-2">Explore <span class="text-cyan-400">Nexus Robotics</span></h2>
             <p class="text-gray-400 mb-8">අවශ්‍ය ප්‍රවර්ගය තෝරා ඉදිරියට යන්න.</p>
 
             <div class="grid md:grid-cols-2 gap-6">
@@ -289,7 +289,194 @@
     }
 </script>
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hasanka Labs | Arduino Shop</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
+    <style>
+        .hero-bg { background: linear-gradient(135deg, #050a14 0%, #0a1428 100%); }
+        .gradient-text {
+            background: linear-gradient(to right, #00d4ff, #00ffa3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .neon-text { text-shadow: 0 0 20px rgba(0, 212, 255, 0.5); }
+        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(10px); }
+        .neon-border { border: 1px solid rgba(0, 212, 255, 0.3); }
+        
+        /* Animations */
+        @keyframes slideIn {
+            from { transform: translateX(20px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        .animate-slide { animation: slideIn 0.3s ease-out forwards; }
+    </style>
+</head>
+<body class="bg-[#050a14] text-white font-sans">
+
+    <section class="relative pt-32 pb-20 lg:pt-40 lg:pb-32 overflow-hidden hero-bg">
+        <div class="absolute inset-0 opacity-20">
+            <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%2300d4ff\' fill-opacity=\'0.05\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-8 text-left">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-sm font-mono">
+                        <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+                        New Arduino Uno R4 WiFi in Stock
+                    </div>
+                    
+                    <h1 class="text-5xl lg:text-7xl font-bold leading-tight">
+                        Build Your <br>
+                        <span class="gradient-text neon-text">Next Project</span>
+                    </h1>
+                    
+                    <p class="text-xl text-gray-400 max-w-lg leading-relaxed">
+                        Premium Arduino components, sensors, and modules for makers, engineers, and hobbyists. Fast shipping across Sri Lanka.
+                    </p>
+                    
+                    <div class="flex flex-wrap gap-4">
+                        <button onclick="openInterface()" class="px-8 py-4 bg-gradient-to-r from-cyan-500 to-cyan-600 hover:from-cyan-400 hover:to-cyan-500 text-black font-bold rounded-lg transition-all transform hover:scale-105 shadow-lg shadow-cyan-500/25">
+                            Start Building
+                        </button>
+                        <button onclick="openInterface()" class="px-8 py-4 bg-white/5 border border-white/20 hover:border-cyan-500 text-white font-medium rounded-lg transition-all hover:bg-white/10">
+                            View Kits
+                        </button>
+                    </div>
+
+                    <div class="flex items-center gap-6 pt-4 text-sm text-gray-500">
+                        <div class="flex items-center gap-2">
+                            <i class="fas fa-truck text-cyan-500"></i>
+                            <span>Free Shipping over Rs. 3000</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fas fa-shield-alt text-emerald-500"></i>
+                            <span>1 Year Warranty</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative">
+                    <div class="absolute inset-0 bg-gradient-to-r from-cyan-500/20 to-emerald-500/20 rounded-3xl blur-3xl"></div>
+                    <div class="relative glass rounded-2xl p-8 neon-border">
+                        <img src="https://descubrearduino.com/wp-content/uploads/2025/08/Arduino.webp" class="rounded-xl shadow-2xl">
+                        <div class="absolute bottom-4 left-4 right-4 glass rounded-lg p-4 bg-black/40 border border-white/10">
+                            <div class="flex justify-between items-center text-left">
+                                <div>
+                                    <p class="text-xs text-gray-400 font-mono">FEATURED</p>
+                                    <p class="text-white font-semibold">Arduino Uno R3 Starter Kit</p>
+                                </div>
+                                <span class="text-cyan-400 font-bold">Rs. 2,500</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="mainInterface" class="fixed inset-0 z-[100] hidden items-center justify-center p-4 bg-black/90 backdrop-blur-xl">
+        <div class="relative w-full max-w-4xl bg-[#0a0f1a] border border-cyan-500/30 rounded-3xl p-6 md:p-10 shadow-2xl max-h-[90vh] overflow-y-auto">
+            
+            <button onclick="closeInterface()" class="absolute top-6 right-6 text-gray-400 hover:text-red-400 transition-colors z-50">
+                <i class="fas fa-times text-2xl"></i>
+            </button>
+
+            <div id="layer1" class="relative z-10 text-left">
+                <h2 class="text-3xl font-bold text-white mb-2">Explore <span class="text-cyan-400">Hasanka Labs</span></h2>
+                <p class="text-gray-400 mb-8">අවශ්‍ය ප්‍රවර්ගය තෝරා ඉදිරියට යන්න.</p>
+
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div onclick="showLayer2()" class="group p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-cyan-500/50 transition-all cursor-pointer">
+                        <div class="w-14 h-14 rounded-lg bg-cyan-500/20 flex items-center justify-center mb-4 text-cyan-400 group-hover:scale-110 transition-transform">
+                            <i class="fas fa-microchip text-2xl"></i>
+                        </div>
+                        <h3 class="text-white font-bold text-xl mb-2">Components</h3>
+                        <p class="text-gray-500 text-sm">Arduino boards, Sensors, and Displays.</p>
+                    </div>
+
+                    <div class="group p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-emerald-500/50 transition-all cursor-pointer">
+                        <div class="w-14 h-14 rounded-lg bg-emerald-500/20 flex items-center justify-center mb-4 text-emerald-400 group-hover:scale-110 transition-transform">
+                            <i class="fas fa-box-open text-2xl"></i>
+                        </div>
+                        <h3 class="text-white font-bold text-xl mb-2">Starter Kits</h3>
+                        <p class="text-gray-500 text-sm">Complete packages for beginners.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="layer2" class="hidden relative z-10 text-left animate-slide">
+                <button onclick="showLayer1()" class="flex items-center gap-2 text-cyan-400 mb-6 hover:text-cyan-300 transition-colors">
+                    <i class="fas fa-arrow-left"></i> Back to Categories
+                </button>
+                
+                <h2 class="text-2xl font-bold text-white mb-6">Arduino <span class="text-cyan-400">Components</span></h2>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <div class="p-4 rounded-xl bg-white/5 border border-white/10 flex items-center gap-4 hover:bg-white/10 transition-all">
+                        <div class="w-12 h-12 bg-cyan-500/10 rounded flex items-center justify-center text-cyan-400"><i class="fas fa-microchip"></i></div>
+                        <div><p class="text-white font-medium text-sm">Arduino Uno R3</p><p class="text-xs text-gray-500">Rs. 2,150.00</p></div>
+                    </div>
+                    <div class="p-4 rounded-xl bg-white/5 border border-white/10 flex items-center gap-4 hover:bg-white/10 transition-all">
+                        <div class="w-12 h-12 bg-cyan-500/10 rounded flex items-center justify-center text-cyan-400"><i class="fas fa-broadcast-tower"></i></div>
+                        <div><p class="text-white font-medium text-sm">Ultrasonic Sensor</p><p class="text-xs text-gray-500">Rs. 350.00</p></div>
+                    </div>
+                    <div class="p-4 rounded-xl bg-white/5 border border-white/10 flex items-center gap-4 hover:bg-white/10 transition-all">
+                        <div class="w-12 h-12 bg-cyan-500/10 rounded flex items-center justify-center text-cyan-400"><i class="fas fa-tachometer-alt"></i></div>
+                        <div><p class="text-white font-medium text-sm">OLED Display 0.96"</p><p class="text-xs text-gray-500">Rs. 850.00</p></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        const modal = document.getElementById('mainInterface');
+        const layer1 = document.getElementById('layer1');
+        const layer2 = document.getElementById('layer2');
+
+        function openInterface() {
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            showLayer1(); 
+            document.body.style.overflow = 'hidden'; 
+        }
+
+        function closeInterface() {
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            document.body.style.overflow = 'auto'; 
+        }
+
+        function showLayer2() {
+            layer1.classList.add('hidden');
+            layer2.classList.remove('hidden');
+        }
+
+        function showLayer1() {
+            layer2.classList.add('hidden');
+            layer1.classList.remove('hidden');
+        }
+
+        // Close when clicking outside the box
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                closeInterface();
+            }
+        }
+    </script>
+
+</body>
+</html>
     <!-- Categories Sidebar & Products -->
     <section id="products" class="py-20 bg-tech-dark">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
