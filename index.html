@@ -290,6 +290,58 @@
 </script>
 
 
+    <!-- Categories Sidebar & Products -->
+    <section id="products" class="py-20 bg-tech-dark">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row gap-8">
+                
+                <!-- Sidebar -->
+                <aside class="lg:w-64 flex-shrink-0">
+                    <div class="glass rounded-xl p-6 sticky top-24">
+                        <h3 class="text-lg font-semibold mb-4 text-white flex items-center gap-2">
+                            <i class="fas fa-layer-group text-cyan-500"></i>
+                            Categories
+                        </h3>
+                        <nav class="space-y-1">
+                            <button onclick="filterCategory('all')" class="sidebar-link active w-full text-left px-4 py-3 rounded-lg text-sm font-medium text-gray-300 flex items-center gap-3">
+                                <i class="fas fa-th-large w-5"></i> All Components
+                            </button>
+                            <button onclick="filterCategory('microcontrollers')" class="sidebar-link w-full text-left px-4 py-3 rounded-lg text-sm font-medium text-gray-300 flex items-center gap-3">
+                                <i class="fas fa-microchip w-5"></i> Microcontrollers
+                            </button>
+                            <button onclick="filterCategory('sensors')" class="sidebar-link w-full text-left px-4 py-3 rounded-lg text-sm font-medium text-gray-300 flex items-center gap-3">
+                                <i class="fas fa-thermometer-half w-5"></i> Sensors
+                            </button>
+                            <button onclick="filterCategory('motors')" class="sidebar-link w-full text-left px-4 py-3 rounded-lg text-sm font-medium text-gray-300 flex items-center gap-3">
+                                <i class="fas fa-cog w-5"></i> Motors & Drivers
+                            </button>
+                            <button onclick="filterCategory('wireless')" class="sidebar-link w-full text-left px-4 py-3 rounded-lg text-sm font-medium text-gray-300 flex items-center gap-3">
+                                <i class="fas fa-wifi w-5"></i> Wireless Modules
+                         <button onclick="filterCategory('tools')" class="sidebar-link w-full text-left px-4 py-3 rounded-lg text-sm font-medium text-gray-300 flex items-center gap-3">
+                                <i class="fas fa-tools w-5"></i> Tools & Accessories
+                            </button>
+                        </nav>
+
+                        <div class="mt-8 pt-6 border-t border-white/10">
+                            <h4 class="text-sm font-semibold text-gray-400 mb-3">Price Range</h4>
+                            <div class="space-y-2">
+                                <label class="flex items-center gap-2 text-sm text-gray-300 cursor-pointer">
+                                    <input type="checkbox" class="rounded border-gray-600 bg-tech-surface text-cyan-500 focus:ring-cyan-500">
+                                    <span>Under Rs. 1000</span>
+                                </label>
+                                <label class="flex items-center gap-2 text-sm text-gray-300 cursor-pointer">
+                                    <input type="checkbox" class="rounded border-gray-600 bg-tech-surface text-cyan-500 focus:ring-cyan-500">
+                                    <span>Rs. 1000 - 3000</span>
+                                </label>
+                                <label class="flex items-center gap-2 text-sm text-gray-300 cursor-pointer">
+                                    <input type="checkbox" class="rounded border-gray-600 bg-tech-surface text-cyan-500 focus:ring-cyan-500">
+                                    <span>Above Rs. 3000</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+
                 <!-- Products Grid -->
                 <div class="flex-1">
                     <div class="flex justify-between items-center mb-6">
