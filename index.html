@@ -219,7 +219,7 @@
 
         <div id="layer2" class="hidden relative z-10 text-left">
             <button onclick="showLayer(1)" class="flex items-center gap-2 text-cyan-400 mb-6 hover:text-cyan-300 transition-colors">
-                <i class="fas fa-arrow-left"></i> Categories ආපසු
+                <i class="fas fa-arrow-left"></i> Categories 
             </button>
             <h2 class="text-2xl font-bold text-white mb-6">Arduino <span class="text-cyan-400">Components</span></h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 overflow-y-auto max-h-[350px] pr-2">
@@ -237,12 +237,57 @@
                     </div>
                     <i class="fas fa-chevron-right text-gray-600"></i>
                 </div>
+                   <div onclick="showDetails('uno')" class="flex items-center justify-between p-4 rounded-xl bg-white/5 border border-white/10 hover:border-cyan-500/50 cursor-pointer transition-all">
+                    <div class="flex items-center gap-4">
+                        <i class="fas fa-microchip text-cyan-400"></i>
+                        <span class="text-white font-medium">ESP 32 Board</span>
+                    </div>
+                    <i class="fas fa-chevron-right text-gray-600"></i>
+                   </div>
+                <div onclick="showDetails('uno')" class="flex items-center justify-between p-4 rounded-xl bg-white/5 border border-white/10 hover:border-cyan-500/50 cursor-pointer transition-all">
+                    <div class="flex items-center gap-4">
+                        <i class="fas fa-microchip text-cyan-400"></i>
+                        <span class="text-white font-medium">DHT22 Temperature Sensor</span>
+                    </div>
+                    <i class="fas fa-chevron-right text-gray-600"></i>
+                </div>
+                    <div onclick="showDetails('uno')" class="flex items-center justify-between p-4 rounded-xl bg-white/5 border border-white/10 hover:border-cyan-500/50 cursor-pointer transition-all">
+                    <div class="flex items-center gap-4">
+                        <i class="fas fa-microchip text-cyan-400"></i>
+                        <span class="text-white font-medium">L298N Motor Driver</span>
+                    </div>
+                    <i class="fas fa-chevron-right text-gray-600"></i>
+                </div>
+                <div onclick="showDetails('uno')" class="flex items-center justify-between p-4 rounded-xl bg-white/5 border border-white/10 hover:border-cyan-500/50 cursor-pointer transition-all">
+                    <div class="flex items-center gap-4">
+                        <i class="fas fa-microchip text-cyan-400"></i>
+                        <span class="text-white font-medium">SG90 Servo Motor</span>
+                    </div>
+                    <i class="fas fa-chevron-right text-gray-600"></i>
+                </div>
             </div>
+              <div onclick="showDetails('uno')" class="flex items-center justify-between p-4 rounded-xl bg-white/5 border border-white/10 hover:border-cyan-500/50 cursor-pointer transition-all">
+                    <div class="flex items-center gap-4">
+                        <i class="fas fa-microchip text-cyan-400"></i>
+                        <span class="text-white font-medium">HC-05 Bluetooth Module</span>
+                    </div>
+                    <i class="fas fa-chevron-right text-gray-600"></i>
+                </div>
+            </div>
+        <div onclick="showDetails('uno')" class="flex items-center justify-between p-4 rounded-xl bg-white/5 border border-white/10 hover:border-cyan-500/50 cursor-pointer transition-all">
+                    <div class="flex items-center gap-4">
+                        <i class="fas fa-microchip text-cyan-400"></i>
+                        <span class="text-white font-medium">LCD Display</span>
+                    </div>
+                    <i class="fas fa-chevron-right text-gray-600"></i>
+                </div>
+            </div>
+      </div>
         </div>
 
         <div id="layer3" class="hidden relative z-10 text-left">
             <button onclick="showLayer(2)" class="flex items-center gap-2 text-cyan-400 mb-6 hover:text-cyan-300">
-                <i class="fas fa-arrow-left"></i> Components ලිස්ට් එකට
+                <i class="fas fa-arrow-left"></i> Components 
             </button>
             
             <div id="productDetailsContent" class="space-y-6">
@@ -260,17 +305,52 @@
         uno: {
             name: "Arduino Uno R3",
             price: "Rs. 2,000",
-            img: "https://www.arduino.cc/en/uploads/Main/ArduinoUno_Front.jpg",
-            desc: "The Arduino Uno is a microcontroller board based on the ATmega328P. It has 14 digital input/output pins, 6 analog inputs, and a 16 MHz quartz crystal.",
+            img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJC53M8lcauFTvQvdd1nliDzGS_O7lqnEosg&s",
             specs: ["Microcontroller: ATmega328P", "Operating Voltage: 5V", "Input Voltage: 7-12V"]
         },
         ultrasonic: {
             name: "Ultrasonic Sensor (HC-SR04)",
             price: "Rs. 400",
-            img: "https://components101.com/sites/default/files/component_pin/HC-SR04-Ultrasonic-Sensor-Pinout.jpg",
-            desc: "HC-SR04 ultrasonic sensor provides 2cm-400cm non-contact measurement function. The module includes ultrasonic transmitters, receiver and control circuit.",
+            img: "https://i.ytimg.com/vi/Ia6AKeZiu10/sddefault.jpg",
             specs: ["Range: 2cm to 400cm", "Accuracy: 3mm", "Working Current: 15mA"]
         }
+
+          esp 32: {
+            name: "ESP 32 Board",
+            price: "Rs. 1,800",
+            img: "https://cdn-shop.adafruit.com/480x360/3269-04.jpg",
+            specs: ["Microcontroller: WiFi + Bluetooth, Dual Core", "Operating Voltage: 3.3V", "Input Voltage: 5V"]
+        },
+       DHT22 Temperature Sensor: {
+            name: "DHT22 Temperature Sensor",
+            price: "Rs. 650",
+            img: "https://m.media-amazon.com/images/I/51J9ha5fZKL._AC_UF894,1000_QL80_.jpg",
+            specs: ["Sensors: -40 to 80°C, Humidity", "Operating Voltage: 3V", "Input Voltage: 5V"]
+        },
+ L298N Motor Driver: {
+            name: "L298N Motor Driver",
+            price: "Rs. 450",
+            img: "https://thepihut.com/cdn/shop/products/l298n-motor-stepper-driver-the-pi-hut-102708-15026935627838_1000x.jpg?v=1646445422",
+            specs: ["Motors & Drivers:2A per channel", "Operating Voltage: 5V", "Input Voltage: 35V"]
+        },
+  SG90 Servo Motor: {
+            name: "SG90 Servo Motor",
+            price: "Rs. 280",
+            img: "https://www.electronics-lab.com/wp-content/uploads/2018/06/SG90-micro-9g-servo-for-Rc-Helicopter.jpg",
+            specs: ["Motors & Drivers:Motors & Drivers", "Operating Voltage: 3V", "Input Voltage: 5V"]
+        },
+     HC-05 Bluetooth Module: {
+            name: "HC-05 Bluetooth Module",
+            price: "Rs. 850",
+            img: "https://www.electronicwings.com/storage/PlatformSection/TopicContent/118/icon/HC-05%20Bluetooth%20Module.jpg",
+            specs: ["Sensors: Bluetooth 2.0, 30ft Range", "Operating Voltage: 3V", "Input Voltage: 5V"]
+        },
+LCD Display: {
+            name: "LCD Display",
+            price: "Rs. 550",
+            img: "https://i0.wp.com/nilambaraelectronics.com/wp-content/uploads/2019/09/41ECQYwyL._SX342_.jpg?fit=342%2C342&ssl=1",
+            specs: ["Microcontrollers: 84x48 pixels, Backlight", "Operating Voltage: 5V", "Input Voltage: 12V"]
+        },
     };
 
     function openInterface() {
@@ -292,8 +372,7 @@
         const item = productData[id];
         detailsContainer.innerHTML = `
             <div class="grid md:grid-cols-2 gap-8">
-                <div class="bg-white/5 rounded-2xl p-4 flex items-center justify-center border border-white/10">
-                    <img src="${item.img}" class="max-h-48 rounded-lg shadow-lg">
+                <div class="bg-white/5 rounded-2xl p-4 flex items-center justify-center border border-white/10">                    <img src="${item.img}" class="max-h-48 rounded-lg shadow-lg">
                 </div>
                 <div class="space-y-4">
                     <h2 class="text-3xl font-bold text-white">${item.name}</h2>
