@@ -1,0 +1,1090 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yasith Hasanka | Arduino Parts & Electronics</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        tech: {
+                            dark: '#0a0a0f',
+                            card: '#13131f',
+                            accent: '#00d4ff',
+                            accent2: '#10b981',
+                            surface: '#1a1a2e',
+                        }
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'glow': 'glow 2s ease-in-out infinite alternate',
+                    },
+                    keyframes: {
+                        glow: {
+                            '0%': { boxShadow: '0 0 5px #00d4ff, 0 0 10px #00d4ff' },
+                            '100%': { boxShadow: '0 0 20px #00d4ff, 0 0 30px #00d4ff' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0a0a0f;
+            color: #e2e8f0;
+        }
+        .glass {
+            background: rgba(19, 19, 31, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .glass-hover:hover {
+            background: rgba(26, 26, 46, 0.9);
+            border-color: rgba(0, 212, 255, 0.3);
+        }
+        .neon-text {
+            text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+        }
+        .neon-border {
+            box-shadow: 0 0 15px rgba(0, 212, 255, 0.2);
+        }
+        .code-block {
+            background: #0d1117;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            padding: 1rem;
+            font-family: 'JetBrains Mono', monospace;
+            overflow-x: auto;
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #00d4ff 0%, #10b981 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .product-card {
+            transition: all 0.3s ease;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.1);
+        }
+        .sidebar-link {
+            transition: all 0.2s;
+            border-left: 2px solid transparent;
+        }
+        .sidebar-link:hover, .sidebar-link.active {
+            background: rgba(0, 212, 255, 0.1);
+            border-left-color: #00d4ff;
+            color: #00d4ff;
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a0a0f;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1a1a2e;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #00d4ff;
+        }
+        .hero-bg {
+            background: radial-gradient(ellipse at center, rgba(0, 212, 255, 0.15) 0%, transparent 70%);
+        }
+    </style>
+</head>
+<body class="antialiased overflow-x-hidden">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center gap-3 cursor-pointer" onclick="window.scrollTo(0,0)">
+                    <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-cyan-500 to-emerald-500 flex items-center justify-center">
+                        <i class="fas fa-microchip text-white text-lg"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-bold tracking-tight text-white">Yasith Hasanka</h1>
+                        <p class="text-xs text-cyan-400 font-mono">ELECTRONICS</p>
+                    </div>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#products" class="text-gray-300 hover:text-cyan-400 transition-colors text-sm font-medium">Components</a>
+                    <a href="#kits" class="text-gray-300 hover:text-cyan-400 transition-colors text-sm font-medium">Kits</a>
+                    <a href="#tutorials" class="text-gray-300 hover:text-cyan-400 transition-colors text-sm font-medium">Projects</a>
+                    <a href="#datasheets" class="text-gray-300 hover:text-cyan-400 transition-colors text-sm font-medium">Datasheets</a>
+                </div>
+
+                <!-- Search & Cart -->
+                <div class="flex items-center gap-4">
+                    <div class="relative hidden sm:block">
+                        <input type="text" id="searchInput" placeholder="Search Uno, Sensors..." 
+                            class="bg-tech-surface border border-white/10 rounded-full py-2 px-4 pl-10 text-sm w-64 focus:outline-none focus:border-cyan-500 transition-all text-gray-300 placeholder-gray-500">
+                        <i class="fas fa-search absolute left-3.5 top-3 text-gray-500"></i>
+                    </div>
+                    
+                    <button class="relative p-2 text-gray-300 hover:text-cyan-400 transition-colors" onclick="toggleCart()">
+                        <i class="fas fa-shopping-cart text-xl"></i>
+                        <span id="cartCount" class="absolute -top-1 -right-1 bg-cyan-500 text-black text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">0</span>
+                    </button>
+                    
+                    <button class="md:hidden p-2 text-gray-300" onclick="toggleMobileMenu()">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden glass border-t border-white/5">
+            <div class="px-4 pt-2 pb-4 space-y-2">
+                <input type="text" placeholder="Search components..." class="w-full bg-tech-surface border border-white/10 rounded-lg py-2 px-4 text-sm mb-4 text-gray-300">
+                <a href="#products" class="block px-3 py-2 text-gray-300 hover:text-cyan-400">Components</a>
+                <a href="#kits" class="block px-3 py-2 text-gray-300 hover:text-cyan-400">Kits</a>
+                <a href="#tutorials" class="block px-3 py-2 text-gray-300 hover:text-cyan-400">Projects</a>
+                <a href="#datasheets" class="block px-3 py-2 text-gray-300 hover:text-cyan-400">Datasheets</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 lg:pt-40 lg:pb-32 overflow-hidden hero-bg">
+        <div class="absolute inset-0 opacity-20">
+            <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%2300d4ff\' fill-opacity=\'0.05\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-8">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-sm font-mono">
+                        <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+                        New Arduino Uno R4 WiFi in Stock
+                    </div>
+                    
+                    <h1 class="text-5xl lg:text-7xl font-bold leading-tight">
+                        Build Your <br>
+                        <span class="gradient-text neon-text">Next Project</span>
+                    </h1>
+                    
+                    <p class="text-xl text-gray-400 max-w-lg leading-relaxed">
+                        Premium Arduino components, sensors, and modules for makers, engineers, and hobbyists. Fast shipping across Sri Lanka.
+                    </p>
+                    
+                    <div class="flex flex-wrap gap-4">
+                        <button onclick="scrollToSection('products')" class="px-8 py-4 bg-gradient-to-r from-cyan-500 to-cyan-600 hover:from-cyan-400 hover:to-cyan-500 text-black font-bold rounded-lg transition-all transform hover:scale-105 shadow-lg shadow-cyan-500/25">
+                            Start Building
+                        </button>
+                        <button onclick="scrollToSection('kits')" class="px-8 py-4 bg-tech-surface border border-white/20 hover:border-cyan-500 text-white font-medium rounded-lg transition-all hover:bg-tech-card">
+                            View Kits
+                        </button>
+                    </div>
+
+                    <div class="flex items-center gap-6 pt-4 text-sm text-gray-500">
+                        <div class="flex items-center gap-2">
+                            <i class="fas fa-truck text-cyan-500"></i>
+                            <span>Free Shipping over Rs. 5000</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fas fa-shield-alt text-emerald-500"></i>
+                            <span>1 Year Warranty</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative">
+                    <div class="absolute inset-0 bg-gradient-to-r from-cyan-500/20 to-emerald-500/20 rounded-3xl blur-3xl"></div>
+                    <div class="relative glass rounded-2xl p-8 neon-border">
+                        <img src="https://images.unsplash.com/photo-1553406830-ef2513450d76?w=800&auto=format&fit=crop&q=80" alt="Arduino Circuit" class="rounded-xl w-full object-cover h-96">
+                        <div class="absolute bottom-4 left-4 right-4 glass rounded-lg p-4">
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <p class="text-xs text-gray-400 font-mono">FEATURED</p>
+                                    <p class="text-white font-semibold">Arduino Uno R3 Starter Kit</p>
+                                </div>
+                                <span class="text-cyan-400 font-bold">Rs. 4,500</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Sidebar & Products -->
+    <section id="products" class="py-20 bg-tech-dark">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row gap-8">
+                
+                <!-- Sidebar -->
+                <aside class="lg:w-64 flex-shrink-0">
+                    <div class="glass rounded-xl p-6 sticky top-24">
+                        <h3 class="text-lg font-semibold mb-4 text-white flex items-center gap-2">
+                            <i class="fas fa-layer-group text-cyan-500"></i>
+                            Categories
+                        </h3>
+                        <nav class="space-y-1">
+                            <button onclick="filterCategory('all')" class="sidebar-link active w-full text-left px-4 py-3 rounded-lg text-sm font-medium text-gray-300 flex items-center gap-3">
+                                <i class="fas fa-th-large w-5"></i> All Components
+                            </button>
+                            <button onclick="filterCategory('microcontrollers')" class="sidebar-link w-full text-left px-4 py-3 rounded-lg text-sm font-medium text-gray-300 flex items-center gap-3">
+                                <i class="fas fa-microchip w-5"></i> Microcontrollers
+                            </button>
+                            <button onclick="filterCategory('sensors')" class="sidebar-link w-full text-left px-4 py-3 rounded-lg text-sm font-medium text-gray-300 flex items-center gap-3">
+                                <i class="fas fa-thermometer-half w-5"></i> Sensors
+                            </button>
+                            <button onclick="filterCategory('motors')" class="sidebar-link w-full text-left px-4 py-3 rounded-lg text-sm font-medium text-gray-300 flex items-center gap-3">
+                                <i class="fas fa-cog w-5"></i> Motors & Drivers
+                            </button>
+                            <button onclick="filterCategory('wireless')" class="sidebar-link w-full text-left px-4 py-3 rounded-lg text-sm font-medium text-gray-300 flex items-center gap-3">
+                                <i class="fas fa-wifi w-5"></i> Wireless Modules
+                            </button>
+                            <button onclick="filterCategory('displays')" class="sidebar-link w-full text-left px-4 py-3 rounded-lg text-sm font-medium text-gray-300 flex items-center gap-3">
+                                <i class="fas fa-desktop w-5"></i> Displays
+                            </button>
+                            <button onclick="filterCategory('tools')" class="sidebar-link w-full text-left px-4 py-3 rounded-lg text-sm font-medium text-gray-300 flex items-center gap-3">
+                                <i class="fas fa-tools w-5"></i> Tools & Accessories
+                            </button>
+                        </nav>
+
+                        <div class="mt-8 pt-6 border-t border-white/10">
+                            <h4 class="text-sm font-semibold text-gray-400 mb-3">Price Range</h4>
+                            <div class="space-y-2">
+                                <label class="flex items-center gap-2 text-sm text-gray-300 cursor-pointer">
+                                    <input type="checkbox" class="rounded border-gray-600 bg-tech-surface text-cyan-500 focus:ring-cyan-500">
+                                    <span>Under Rs. 1000</span>
+                                </label>
+                                <label class="flex items-center gap-2 text-sm text-gray-300 cursor-pointer">
+                                    <input type="checkbox" class="rounded border-gray-600 bg-tech-surface text-cyan-500 focus:ring-cyan-500">
+                                    <span>Rs. 1000 - 3000</span>
+                                </label>
+                                <label class="flex items-center gap-2 text-sm text-gray-300 cursor-pointer">
+                                    <input type="checkbox" class="rounded border-gray-600 bg-tech-surface text-cyan-500 focus:ring-cyan-500">
+                                    <span>Above Rs. 3000</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- Products Grid -->
+                <div class="flex-1">
+                    <div class="flex justify-between items-center mb-6">
+                        <h2 class="text-2xl font-bold text-white" id="categoryTitle">All Components</h2>
+                        <div class="flex gap-2">
+                            <select class="bg-tech-surface border border-white/10 rounded-lg px-4 py-2 text-sm text-gray-300 focus:outline-none focus:border-cyan-500">
+                                <option>Sort by: Popular</option>
+                                <option>Price: Low to High</option>
+                                <option>Price: High to Low</option>
+                                <option>Newest</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div id="productsGrid" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+                        <!-- Products injected via JS -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Kits Section -->
+    <section id="kits" class="py-20 bg-tech-surface relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">Complete <span class="gradient-text">Project Kits</span></h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">Everything you need in one box. Save money and start building immediately with our curated kits.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Kit 1 -->
+                <div class="glass rounded-2xl overflow-hidden product-card group">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1581092921461-eab62e97a782?w=600&auto=format&fit=crop&q=80" alt="Bluetooth Car Kit" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute top-4 right-4 bg-emerald-500 text-black text-xs font-bold px-3 py-1 rounded-full">SAVE 20%</div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="text-xs font-mono text-cyan-400 bg-cyan-400/10 px-2 py-1 rounded">BEGINNER</span>
+                            <span class="text-xs text-gray-500">25+ Components</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-white">Bluetooth Robot Car Kit</h3>
+                        <p class="text-gray-400 text-sm mb-4">Complete kit with L298N driver, HC-05 module, chassis, wheels, and Arduino code included.</p>
+                        
+                        <div class="flex items-center justify-between mb-4">
+                            <div>
+                                <span class="text-2xl font-bold text-white">Rs. 3,200</span>
+                                <span class="text-sm text-gray-500 line-through ml-2">Rs. 4,000</span>
+                            </div>
+                            <div class="flex text-yellow-400 text-sm">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+
+                        <div class="space-y-2 mb-4">
+                            <div class="flex items-center gap-2 text-xs text-gray-400">
+                                <i class="fas fa-check text-emerald-500"></i>
+                                <span>Pre-written Arduino code</span>
+                            </div>
+                            <div class="flex items-center gap-2 text-xs text-gray-400">
+                                <i class="fas fa-check text-emerald-500"></i>
+                                <span>Wiring diagram included</span>
+                            </div>
+                            <div class="flex items-center gap-2 text-xs text-gray-400">
+                                <i class="fas fa-check text-emerald-500"></i>
+                                <span>Android app provided</span>
+                            </div>
+                        </div>
+
+                        <button onclick="addToCart('Bluetooth Robot Car Kit', 3200)" class="w-full py-3 bg-gradient-to-r from-cyan-600 to-cyan-500 hover:from-cyan-500 hover:to-cyan-400 text-black font-bold rounded-lg transition-all">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Kit 2 -->
+                <div class="glass rounded-2xl overflow-hidden product-card group">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&auto=format&fit=crop&q=80" alt="IoT Weather Station" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute top-4 right-4 bg-purple-500 text-white text-xs font-bold px-3 py-1 rounded-full">INTERMEDIATE</div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="text-xs font-mono text-purple-400 bg-purple-400/10 px-2 py-1 rounded">INTERMEDIATE</span>
+                            <span class="text-xs text-gray-500">15+ Sensors</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-white">IoT Weather Station Kit</h3>
+                        <p class="text-gray-400 text-sm mb-4">ESP32-based weather monitoring with BME280, rain sensor, anemometer, and cloud dashboard.</p>
+                        
+                        <div class="flex items-center justify-between mb-4">
+                            <div>
+                                <span class="text-2xl font-bold text-white">Rs. 5,800</span>
+                            </div>
+                            <div class="flex text-yellow-400 text-sm">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+
+                        <div class="space-y-2 mb-4">
+                            <div class="flex items-center gap-2 text-xs text-gray-400">
+                                <i class="fas fa-check text-emerald-500"></i>
+                                <span>ESP32 DevKit included</span>
+                            </div>
+                            <div class="flex items-center gap-2 text-xs text-gray-400">
+                                <i class="fas fa-check text-emerald-500"></i>
+                                <span>Cloud platform access</span>
+                            </div>
+                            <div class="flex items-center gap-2 text-xs text-gray-400">
+                                <i class="fas fa-check text-emerald-500"></i>
+                                <span>Mobile app source code</span>
+                            </div>
+                        </div>
+
+                        <button onclick="addToCart('IoT Weather Station Kit', 5800)" class="w-full py-3 bg-gradient-to-r from-cyan-600 to-cyan-500 hover:from-cyan-500 hover:to-cyan-400 text-black font-bold rounded-lg transition-all">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Kit 3 -->
+                <div class="glass rounded-2xl overflow-hidden product-card group">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1563770660941-20978e870e26?w=600&auto=format&fit=crop&q=80" alt="Home Automation" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute top-4 right-4 bg-orange-500 text-white text-xs font-bold px-3 py-1 rounded-full">ADVANCED</div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="text-xs font-mono text-orange-400 bg-orange-400/10 px-2 py-1 rounded">ADVANCED</span>
+                            <span class="text-xs text-gray-500">30+ Modules</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-white">Smart Home Automation Kit</h3>
+                        <p class="text-gray-400 text-sm mb-4">Relay modules, PIR sensors, RFID, servo motors, and touch switches for complete home automation.</p>
+                        
+                        <div class="flex items-center justify-between mb-4">
+                            <div>
+                                <span class="text-2xl font-bold text-white">Rs. 8,500</span>
+                            </div>
+                            <div class="flex text-yellow-400 text-sm">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+
+                        <div class="space-y-2 mb-4">
+                            <div class="flex items-center gap-2 text-xs text-gray-400">
+                                <i class="fas fa-check text-emerald-500"></i>
+                                <span>4-channel relay module</span>
+                            </div>
+                            <div class="flex items-center gap-2 text-xs text-gray-400">
+                                <i class="fas fa-check text-emerald-500"></i>
+                                <span>RFID access control</span>
+                            </div>
+                            <div class="flex items-center gap-2 text-xs text-gray-400">
+                                <i class="fas fa-check text-emerald-500"></i>
+                                <span>Voice control (Alexa/Google)</span>
+                            </div>
+                        </div>
+
+                        <button onclick="addToCart('Smart Home Automation Kit', 8500)" class="w-full py-3 bg-gradient-to-r from-cyan-600 to-cyan-500 hover:from-cyan-500 hover:to-cyan-400 text-black font-bold rounded-lg transition-all">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tutorials & Projects Section -->
+    <section id="tutorials" class="py-20 bg-tech-dark">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-end mb-12">
+                <div>
+                    <h2 class="text-4xl font-bold mb-2">Recent <span class="gradient-text">Arduino Projects</span></h2>
+                    <p class="text-gray-400">Step-by-step guides with code and circuit diagrams</p>
+                </div>
+                <a href="#" class="text-cyan-400 hover:text-cyan-300 font-medium flex items-center gap-2">
+                    View All <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <article class="glass rounded-2xl overflow-hidden hover:transform hover:scale-[1.02] transition-all duration-300">
+                    <div class="relative h-48">
+                        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&auto=format&fit=crop&q=80" alt="Line Follower" class="w-full h-full object-cover">
+                        <div class="absolute top-4 left-4 bg-cyan-500/90 text-black text-xs font-bold px-3 py-1 rounded-full">ROBOTICS</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold mb-2 text-white">Arduino Line Follower Robot</h3>
+                        <p class="text-gray-400 text-sm mb-4">Build an autonomous robot using IR sensors and L298N motor driver. Complete with PID control algorithm.</p>
+                        
+                        <div class="flex items-center gap-4 mb-4 text-xs text-gray-500">
+                            <span class="flex items-center gap-1"><i class="far fa-clock"></i> 45 min</span>
+                            <span class="flex items-center gap-1"><i class="fas fa-signal"></i> Beginner</span>
+                            <span class="flex items-center gap-1"><i class="fas fa-eye"></i> 2.4k views</span>
+                        </div>
+
+                        <div class="code-block mb-4 text-xs">
+                            <div class="flex justify-between items-center mb-2 text-gray-500">
+                                <span>main.ino</span>
+                                <i class="fas fa-copy cursor-pointer hover:text-white"></i>
+                            </div>
+                            <pre class="text-gray-300 overflow-x-auto"><code>void loop() {
+  int val = digitalRead(sensor);
+  if(val == LOW) {
+    forward();
+  } else {
+    turnRight();
+  }
+}</code></pre>
+                        </div>
+
+                        <button class="w-full py-2 border border-cyan-500/30 text-cyan-400 rounded-lg hover:bg-cyan-500/10 transition-colors text-sm font-medium">
+                            View Full Tutorial
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Project 2 -->
+                <article class="glass rounded-2xl overflow-hidden hover:transform hover:scale-[1.02] transition-all duration-300">
+                    <div class="relative h-48">
+                        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=600&auto=format&fit=crop&q=80" alt="Smart Irrigation" class="w-full h-full object-cover">
+                        <div class="absolute top-4 left-4 bg-emerald-500/90 text-black text-xs font-bold px-3 py-1 rounded-full">IOT</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold mb-2 text-white">Smart Plant Watering System</h3>
+                        <p class="text-gray-400 text-sm mb-4">Automated irrigation using soil moisture sensors and water pump. Includes Blynk app integration.</p>
+                        
+                        <div class="flex items-center gap-4 mb-4 text-xs text-gray-500">
+                            <span class="flex items-center gap-1"><i class="far fa-clock"></i> 60 min</span>
+                            <span class="flex items-center gap-1"><i class="fas fa-signal"></i> Intermediate</span>
+                            <span class="flex items-center gap-1"><i class="fas fa-eye"></i> 1.8k views</span>
+                        </div>
+
+                        <div class="code-block mb-4 text-xs">
+                            <div class="flex justify-between items-center mb-2 text-gray-500">
+                                <span>sensors.cpp</span>
+                                <i class="fas fa-copy cursor-pointer hover:text-white"></i>
+                            </div>
+                            <pre class="text-gray-300 overflow-x-auto"><code>int moisture = analogRead(A0);
+if(moisture < 300) {
+  digitalWrite(pump, HIGH);
+  Blynk.notify("Watering!");
+}</code></pre>
+                        </div>
+
+                        <button class="w-full py-2 border border-cyan-500/30 text-cyan-400 rounded-lg hover:bg-cyan-500/10 transition-colors text-sm font-medium">
+                            View Full Tutorial
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Project 3 -->
+                <article class="glass rounded-2xl overflow-hidden hover:transform hover:scale-[1.02] transition-all duration-300">
+                    <div class="relative h-48">
+                        <img src="https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?w=600&auto=format&fit=crop&q=80" alt="RFID Door Lock" class="w-full h-full object-cover">
+                        <div class="absolute top-4 left-4 bg-purple-500/90 text-white text-xs font-bold px-3 py-1 rounded-full">SECURITY</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold mb-2 text-white">RFID Door Lock System</h3>
+                        <p class="text-gray-400 text-sm mb-4">Secure access control using RC522 RFID module and servo motor. Stores up to 100 authorized cards.</p>
+                        
+                        <div class="flex items-center gap-4 mb-4 text-xs text-gray-500">
+                            <span class="flex items-center gap-1"><i class="far fa-clock"></i> 90 min</span>
+                            <span class="flex items-center gap-1"><i class="fas fa-signal"></i> Advanced</span>
+                            <span class="flex items-center gap-1"><i class="fas fa-eye"></i> 3.1k views</span>
+                        </div>
+
+                        <div class="code-block mb-4 text-xs">
+                            <div class="flex justify-between items-center mb-2 text-gray-500">
+                                <span>rfid.ino</span>
+                                <i class="fas fa-copy cursor-pointer hover:text-white"></i>
+                            </div>
+                            <pre class="text-gray-300 overflow-x-auto"><code>if (rfid.PICC_IsNewCardPresent()) {
+  if (authorized(uid)) {
+    unlockDoor();
+    logAccess();
+  }
+}</code></pre>
+                        </div>
+
+                        <button class="w-full py-2 border border-cyan-500/30 text-cyan-400 rounded-lg hover:bg-cyan-500/10 transition-colors text-sm font-medium">
+                            View Full Tutorial
+                        </button>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Datasheets Section -->
+    <section id="datasheets" class="py-20 bg-tech-surface">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="glass rounded-2xl p-8 md:p-12">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h2 class="text-3xl font-bold mb-4">Technical <span class="gradient-text">Documentation</span></h2>
+                        <p class="text-gray-400 mb-6">Download official datasheets, schematics, and reference manuals for all components. We provide comprehensive technical resources to help you integrate parts correctly.</p>
+                        
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between p-4 bg-tech-dark rounded-lg border border-white/5 hover:border-cyan-500/30 transition-colors">
+                                <div class="flex items-center gap-4">
+                                    <div class="w-10 h-10 rounded-lg bg-red-500/20 flex items-center justify-center">
+                                        <i class="fas fa-file-pdf text-red-400"></i>
+                                    </div>
+                                    <div>
+                                        <p class="font-medium text-white">ATmega328P Datasheet</p>
+                                        <p class="text-xs text-gray-500">Complete technical specifications</p>
+                                    </div>
+                                </div>
+                                <button class="text-cyan-400 hover:text-cyan-300">
+                                    <i class="fas fa-download"></i>
+                                </button>
+                            </div>
+
+                            <div class="flex items-center justify-between p-4 bg-tech-dark rounded-lg border border-white/5 hover:border-cyan-500/30 transition-colors">
+                                <div class="flex items-center gap-4">
+                                    <div class="w-10 h-10 rounded-lg bg-blue-500/20 flex items-center justify-center">
+                                        <i class="fas fa-file-alt text-blue-400"></i>
+                                    </div>
+                                    <div>
+                                        <p class="font-medium text-white">Arduino Uno Pinout Diagram</p>
+                                        <p class="text-xs text-gray-500">High-resolution reference chart</p>
+                                    </div>
+                                </div>
+                                <button class="text-cyan-400 hover:text-cyan-300">
+                                    <i class="fas fa-download"></i>
+                                </button>
+                            </div>
+
+                            <div class="flex items-center justify-between p-4 bg-tech-dark rounded-lg border border-white/5 hover:border-cyan-500/30 transition-colors">
+                                <div class="flex items-center gap-4">
+                                    <div class="w-10 h-10 rounded-lg bg-green-500/20 flex items-center justify-center">
+                                        <i class="fas fa-book text-green-400"></i>
+                                    </div>
+                                    <div>
+                                        <p class="font-medium text-white">Sensor Interfacing Guide</p>
+                                        <p class="text-xs text-gray-500">Wiring diagrams for 50+ sensors</p>
+                                    </div>
+                                </div>
+                                <button class="text-cyan-400 hover:text-cyan-300">
+                                    <i class="fas fa-download"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="relative">
+                        <div class="absolute inset-0 bg-gradient-to-r from-cyan-500/20 to-emerald-500/20 rounded-2xl blur-2xl"></div>
+                        <div class="relative glass rounded-xl p-6 border border-white/10">
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="text-xs font-mono text-cyan-400">PREVIEW</span>
+                                <span class="text-xs text-gray-500">PDF Document</span>
+                            </div>
+                            <div class="bg-tech-dark rounded-lg p-8 text-center border border-white/5">
+                                <i class="fas fa-microchip text-6xl text-cyan-500/30 mb-4"></i>
+                                <h4 class="text-lg font-bold text-white mb-2">ATmega328P</h4>
+                                <p class="text-sm text-gray-500 mb-4">8-bit AVR Microcontroller</p>
+                                <div class="flex justify-center gap-2 text-xs font-mono text-gray-400">
+                                    <span>32KB Flash</span>
+                                    <span>•</span>
+                                    <span>2KB SRAM</span>
+                                    <span>•</span>
+                                    <span>1KB EEPROM</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="py-20 bg-tech-dark">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-4">Join the <span class="gradient-text">Maker Community</span></h2>
+            <p class="text-gray-400 mb-8">Get weekly project ideas, exclusive discounts, and early access to new components.</p>
+            
+            <form class="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto" onsubmit="event.preventDefault(); alert('Thanks for subscribing!');">
+                <input type="email" placeholder="Enter your email" class="flex-1 bg-tech-surface border border-white/10 rounded-lg px-6 py-3 text-white focus:outline-none focus:border-cyan-500 transition-colors">
+                <button type="submit" class="px-8 py-3 bg-gradient-to-r from-cyan-600 to-cyan-500 hover:from-cyan-500 hover:to-cyan-400 text-black font-bold rounded-lg transition-all">
+                    Subscribe
+                </button>
+            </form>
+            
+            <p class="text-xs text-gray-600 mt-4">No spam. Unsubscribe anytime.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-tech-surface border-t border-white/5 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <div class="col-span-1 md:col-span-1">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-cyan-500 to-emerald-500 flex items-center justify-center">
+                            <i class="fas fa-microchip text-white text-lg"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-white">Yasith Hasanka</h3>
+                            <p class="text-xs text-cyan-400 font-mono">ELECTRONICS</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-4">Premium Arduino components and electronics for makers in Sri Lanka. Quality guaranteed, fast delivery.</p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 rounded-lg bg-tech-dark border border-white/10 flex items-center justify-center text-gray-400 hover:text-cyan-400 hover:border-cyan-500/30 transition-all">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-lg bg-tech-dark border border-white/10 flex items-center justify-center text-gray-400 hover:text-cyan-400 hover:border-cyan-500/30 transition-all">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-lg bg-tech-dark border border-white/10 flex items-center justify-center text-gray-400 hover:text-cyan-400 hover:border-cyan-500/30 transition-all">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-lg bg-tech-dark border border-white/10 flex items-center justify-center text-gray-400 hover:text-cyan-400 hover:border-cyan-500/30 transition-all">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-cyan-400 transition-colors">New Arrivals</a></li>
+                        <li><a href="#" class="hover:text-cyan-400 transition-colors">Best Sellers</a></li>
+                        <li><a href="#" class="hover:text-cyan-400 transition-colors">Starter Kits</a></li>
+                        <li><a href="#" class="hover:text-cyan-400 transition-colors">Bulk Orders</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Support</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-cyan-400 transition-colors">Contact Us</a></li>
+                        <li><a href="#" class="hover:text-cyan-400 transition-colors">Shipping Info</a></li>
+                        <li><a href="#" class="hover:text-cyan-400 transition-colors">Returns</a></li>
+                        <li><a href="#" class="hover:text-cyan-400 transition-colors">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Contact</h4>
+                    <ul class="space-y-3 text-sm text-gray-400">
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-map-marker-alt text-cyan-500 mt-1"></i>
+                            <span>123 Tech Street, Colombo 03,<br>Sri Lanka</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-phone text-cyan-500"></i>
+                            <span>+94 77 123 4567</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-envelope text-cyan-500"></i>
+                            <span>hello@yasithhasanka.lk</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-sm text-gray-500">&copy; 2026 Yasith Hasanka Electronics. All rights reserved.</p>
+                <div class="flex gap-6 text-sm text-gray-500">
+                    <a href="#" class="hover:text-cyan-400 transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-cyan-400 transition-colors">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Sidebar (Hidden by default) -->
+    <div id="cartSidebar" class="fixed inset-0 z-50 hidden">
+        <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" onclick="toggleCart()"></div>
+        <div class="absolute right-0 top-0 h-full w-full max-w-md bg-tech-card border-l border-white/10 shadow-2xl transform transition-transform duration-300 translate-x-full" id="cartContent">
+            <div class="flex flex-col h-full">
+                <div class="p-6 border-b border-white/10 flex justify-between items-center">
+                    <h2 class="text-xl font-bold text-white">Shopping Cart</h2>
+                    <button onclick="toggleCart()" class="text-gray-400 hover:text-white">
+                        <i class="fas fa-times text-xl"></i>
+                    </button>
+                </div>
+                
+                <div id="cartItems" class="flex-1 overflow-y-auto p-6 space-y-4">
+                    <div class="text-center text-gray-500 py-12">
+                        <i class="fas fa-shopping-cart text-4xl mb-4 opacity-30"></i>
+                        <p>Your cart is empty</p>
+                    </div>
+                </div>
+
+                <div class="p-6 border-t border-white/10 bg-tech-surface">
+                    <div class="flex justify-between mb-4 text-lg font-bold text-white">
+                        <span>Total</span>
+                        <span id="cartTotal">Rs. 0</span>
+                    </div>
+                    <button class="w-full py-3 bg-gradient-to-r from-cyan-600 to-cyan-500 hover:from-cyan-500 hover:to-cyan-400 text-black font-bold rounded-lg transition-all">
+                        Checkout
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed bottom-4 right-4 bg-tech-card border border-cyan-500/30 text-white px-6 py-3 rounded-lg shadow-2xl transform translate-y-20 opacity-0 transition-all duration-300 z-50 flex items-center gap-3">
+        <i class="fas fa-check-circle text-emerald-500"></i>
+        <span id="toastMessage">Added to cart!</span>
+    </div>
+
+    <script>
+        // Product Data
+        const products = [
+            {
+                id: 1,
+                name: "Arduino Uno R3 (Clone)",
+                category: "microcontrollers",
+                price: 1850,
+                image: "https://images.unsplash.com/photo-1626379953822-baec19c3accd?w=400&auto=format&fit=crop&q=80",
+                stock: 15,
+                specs: "ATmega328P, 16MHz, USB-B",
+                code: "void setup() {\n  pinMode(LED_BUILTIN, OUTPUT);\n}\nvoid loop() {\n  digitalWrite(LED_BUILTIN, HIGH);\n  delay(1000);\n  digitalWrite(LED_BUILTIN, LOW);\n  delay(1000);\n}"
+            },
+            {
+                id: 2,
+                name: "ESP32 DevKit V1",
+                category: "microcontrollers",
+                price: 1200,
+                image: "https://images.unsplash.com/photo-1553406830-ef2513450d76?w=400&auto=format&fit=crop&q=80",
+                stock: 8,
+                specs: "WiFi + Bluetooth, Dual Core",
+                code: "#include <WiFi.h>\nconst char* ssid = \"YourSSID\";\nvoid setup() {\n  WiFi.begin(ssid);\n}"
+            },
+            {
+                id: 3,
+                name: "HC-SR04 Ultrasonic Sensor",
+                category: "sensors",
+                price: 350,
+                image: "https://images.unsplash.com/photo-1581092921461-eab62e97a782?w=400&auto=format&fit=crop&q=80",
+                stock: 25,
+                specs: "2cm-400cm Range, 5V",
+                code: "digitalWrite(trigPin, LOW);\ndelayMicroseconds(2);\ndigitalWrite(trigPin, HIGH);\ndelayMicroseconds(10);\nduration = pulseIn(echoPin, HIGH);\ndistance = duration * 0.034 / 2;"
+            },
+            {
+                id: 4,
+                name: "DHT22 Temperature Sensor",
+                category: "sensors",
+                price: 650,
+                image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&auto=format&fit=crop&q=80",
+                stock: 12,
+                specs: "-40 to 80°C, Humidity",
+                code: "#include <DHT.h>\nDHT dht(DHTPIN, DHT22);\nfloat temp = dht.readTemperature();\nfloat hum = dht.readHumidity();"
+            },
+            {
+                id: 5,
+                name: "L298N Motor Driver",
+                category: "motors",
+                price: 450,
+                image: "https://images.unsplash.com/photo-1563770660941-20978e870e26?w=400&auto=format&fit=crop&q=80",
+                stock: 20,
+                specs: "2A per channel, 5-35V",
+                code: "digitalWrite(in1, HIGH);\ndigitalWrite(in2, LOW);\nanalogWrite(enA, 255);"
+            },
+            {
+                id: 6,
+                name: "SG90 Servo Motor",
+                category: "motors",
+                price: 280,
+                image: "https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?w=400&auto=format&fit=crop&q=80",
+                stock: 30,
+                specs: "180°, 9g, Tower Pro",
+                code: "#include <Servo.h>\nServo myservo;\nmyservo.attach(9);\nmyservo.write(90);"
+            },
+            {
+                id: 7,
+                name: "HC-05 Bluetooth Module",
+                category: "wireless",
+                price: 850,
+                image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&auto=format&fit=crop&q=80",
+                stock: 10,
+                specs: "Bluetooth 2.0, 30ft Range",
+                code: "Serial.begin(9600);\nif(Serial.available()) {\n  char data = Serial.read();\n}"
+            },
+            {
+                id: 8,
+                name: "Nokia 5110 LCD Display",
+                category: "displays",
+                price: 550,
+                image: "https://images.unsplash.com/photo-1553406830-ef2513450d76?w=400&auto=format&fit=crop&q=80",
+                stock: 18,
+                specs: "84x48 pixels, Backlight",
+                code: "display.setCursor(0,0);\ndisplay.println(\"Hello World!\");\ndisplay.display();"
+            },
+            {
+                id: 9,
+                name: "Breadboard 830 Points",
+                category: "tools",
+                price: 180,
+                image: "https://images.unsplash.com/photo-1581092921461-eab62e97a782?w=400&auto=format&fit=crop&q=80",
+                stock: 50,
+                specs: "Self-adhesive, 2 power rails",
+                code: "// Perfect for prototyping\n// No soldering required"
+            }
+        ];
+
+        let cart = [];
+        let currentCategory = 'all';
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            renderProducts();
+            
+            // Search functionality
+            document.getElementById('searchInput').addEventListener('input', (e) => {
+                const searchTerm = e.target.value.toLowerCase();
+                const filtered = products.filter(p => 
+                    p.name.toLowerCase().includes(searchTerm) ||
+                    p.category.toLowerCase().includes(searchTerm)
+                );
+                renderProducts(filtered);
+            });
+        });
+
+        function renderProducts(productList = products) {
+            const grid = document.getElementById('productsGrid');
+            const filtered = currentCategory === 'all' 
+                ? productList 
+                : productList.filter(p => p.category === currentCategory);
+            
+            grid.innerHTML = filtered.map(product => `
+                <div class="glass rounded-2xl overflow-hidden product-card group">
+                    <div class="relative h-56 overflow-hidden bg-tech-surface">
+                        <img src="${product.image}" alt="${product.name}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        ${product.stock < 10 ? `<div class="absolute top-3 left-3 bg-red-500/90 text-white text-xs font-bold px-3 py-1 rounded-full">Only ${product.stock} left</div>` : ''}
+                        <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-3">
+                            <button onclick="showCode(${product.id})" class="w-10 h-10 rounded-full bg-white/20 backdrop-blur flex items-center justify-center text-white hover:bg-cyan-500 hover:text-black transition-all" title="View Code">
+                                <i class="fas fa-code"></i>
+                            </button>
+                            <button onclick="addToCart('${product.name}', ${product.price})" class="w-10 h-10 rounded-full bg-white/20 backdrop-blur flex items-center justify-center text-white hover:bg-cyan-500 hover:text-black transition-all" title="Quick Add">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-5">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-bold text-white text-lg">${product.name}</h3>
+                            <span class="text-cyan-400 font-bold">Rs. ${product.price}</span>
+                        </div>
+                        <p class="text-gray-500 text-xs mb-3 font-mono">${product.specs}</p>
+                        
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs ${product.stock > 5 ? 'text-emerald-400' : 'text-orange-400'} flex items-center gap-1">
+                                <i class="fas fa-circle text-[8px]"></i>
+                                ${product.stock > 5 ? 'In Stock' : 'Low Stock'}
+                            </span>
+                            <button onclick="addToCart('${product.name}', ${product.price})" class="px-4 py-2 bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 rounded-lg hover:bg-cyan-500 hover:text-black transition-all text-sm font-medium">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function filterCategory(category) {
+            currentCategory = category;
+            
+            // Update active state
+            document.querySelectorAll('.sidebar-link').forEach(link => {
+                link.classList.remove('active');
+            });
+            event.target.closest('.sidebar-link').classList.add('active');
+            
+            // Update title
+            const titles = {
+                'all': 'All Components',
+                'microcontrollers': 'Microcontrollers',
+                'sensors': 'Sensors',
+                'motors': 'Motors & Drivers',
+                'wireless': 'Wireless Modules',
+                'displays': 'Displays',
+                'tools': 'Tools & Accessories'
+            };
+            document.getElementById('categoryTitle').textContent = titles[category] || 'Products';
+            
+            renderProducts();
+        }
+
+        function addToCart(name, price) {
+            const existing = cart.find(item => item.name === name);
+            if (existing) {
+                existing.quantity++;
+            } else {
+                cart.push({ name, price, quantity: 1 });
+            }
+            updateCart();
+            showToast(`${name} added to cart`);
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCart();
+        }
+
+        function updateCart() {
+            const count = cart.reduce((sum, item) => sum + item.quantity, 0);
+            document.getElementById('cartCount').textContent = count;
+            
+            const cartItems = document.getElementById('cartItems');
+            const cartTotal = document.getElementById('cartTotal');
+            
+            if (cart.length === 0) {
+                cartItems.innerHTML = `
+                    <div class="text-center text-gray-500 py-12">
+                        <i class="fas fa-shopping-cart text-4xl mb-4 opacity-30"></i>
+                        <p>Your cart is empty</p>
+                    </div>
+                `;
+                cartTotal.textContent = 'Rs. 0';
+            } else {
+                cartItems.innerHTML = cart.map((item, index) => `
+                    <div class="flex justify-between items-center p-4 bg-tech-dark rounded-lg border border-white/5">
+                        <div>
+                            <h4 class="text-white font-medium text-sm">${item.name}</h4>
+                            <p class="text-gray-500 text-xs">Rs. ${item.price} x ${item.quantity}</p>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <span class="text-cyan-400 font-bold">Rs. ${item.price * item.quantity}</span>
+                            <button onclick="removeFromCart(${index})" class="text-gray-500 hover:text-red-400">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+                `).join('');
+                
+                const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+                cartTotal.textContent = `Rs. ${total}`;
+            }
+        }
+
+        function toggleCart() {
+            const sidebar = document.getElementById('cartSidebar');
+            const content = document.getElementById('cartContent');
+            
+            if (sidebar.classList.contains('hidden')) {
+                sidebar.classList.remove('hidden');
+                setTimeout(() => {
+                    content.classList.remove('translate-x-full');
+                }, 10);
+            } else {
+                content.classList.add('translate-x-full');
+                setTimeout(() => {
+                    sidebar.classList.add('hidden');
+                }, 300);
+            }
+        }
+
+        function showCode(productId) {
+            const product = products.find(p => p.id === productId);
+            if (product && product.code) {
+                alert(`Example Code for ${product.name}:\n\n${product.code}`);
+            }
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toastMessage').textContent = message;
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            setTimeout(() => {
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 3000);
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+
+        function scrollToSection(id) {
+            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Smooth scroll for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
