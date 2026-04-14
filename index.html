@@ -225,7 +225,130 @@
             </div>
         </div>
     </section>
+<section class="relative pt-32 pb-20 lg:pt-40 lg:pb-32 overflow-hidden hero-bg">
+    <div class="absolute inset-0 opacity-20">
+        <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%2300d4ff\' fill-opacity=\'0.05\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
+    </div>
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div class="space-y-8">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-sm font-mono">
+                    <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+                    New Arduino Uno R4 WiFi in Stock
+                </div>
+                
+                <h1 class="text-5xl lg:text-7xl font-bold leading-tight text-white">
+                    Build Your <br>
+                    <span class="gradient-text neon-text">Next Project</span>
+                </h1>
+                
+                <p class="text-xl text-gray-400 max-w-lg leading-relaxed">
+                    Premium Arduino components, sensors, and modules for makers, engineers, and hobbyists. Fast shipping across Sri Lanka.
+                </p>
+                
+                <div class="flex flex-wrap gap-4">
+                    <button onclick="openInterface()" class="px-8 py-4 bg-gradient-to-r from-cyan-500 to-cyan-600 hover:from-cyan-400 hover:to-cyan-500 text-black font-bold rounded-lg transition-all transform hover:scale-105 shadow-lg shadow-cyan-500/25">
+                        Start Building
+                    </button>
+                    <button onclick="openInterface()" class="px-8 py-4 bg-tech-surface border border-white/20 hover:border-cyan-500 text-white font-medium rounded-lg transition-all hover:bg-tech-card">
+                        View Kits
+                    </button>
+                </div>
 
+                <div class="flex items-center gap-6 pt-4 text-sm text-gray-500">
+                    <div class="flex items-center gap-2">
+                        <i class="fas fa-truck text-cyan-500"></i>
+                        <span>Free Shipping over Rs. 3000</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i class="fas fa-shield-alt text-emerald-500"></i>
+                        <span>1 Year Warranty</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="relative">
+                <div class="absolute inset-0 bg-gradient-to-r from-cyan-500/20 to-emerald-500/20 rounded-3xl blur-3xl"></div>
+                <div class="relative glass rounded-2xl p-8 neon-border border border-white/10">
+                    <img src="https://descubrearduino.com/wp-content/uploads/2025/08/Arduino.webp" class="rounded-lg">
+                    <div class="absolute bottom-4 left-4 right-4 glass rounded-lg p-4 bg-black/40 backdrop-blur-md border border-white/10">
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <p class="text-xs text-gray-400 font-mono">FEATURED</p>
+                                <p class="text-white font-semibold">Arduino Uno R3 Starter Kit</p>
+                            </div>
+                            <span class="text-cyan-400 font-bold">Rs. 2,500</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div id="mainInterface" class="fixed inset-0 z-[100] hidden items-center justify-center p-4 bg-black/90 backdrop-blur-lg">
+    <div class="relative w-full max-w-3xl bg-[#0a0f1a] border border-cyan-500/30 rounded-3xl p-8 shadow-2xl overflow-hidden">
+        <div class="absolute -top-24 -right-24 w-48 h-48 bg-cyan-500/10 blur-3xl"></div>
+        
+        <button onclick="closeInterface()" class="absolute top-6 right-6 text-gray-400 hover:text-cyan-400 transition-colors">
+            <i class="fas fa-times text-2xl"></i>
+        </button>
+
+        <div class="relative z-10">
+            <h2 class="text-3xl font-bold text-white mb-2">Explore <span class="text-cyan-400">Hasanka Labs</span></h2>
+            <p class="text-gray-400 mb-8">අවශ්‍ය ප්‍රවර්ගය තෝරා ඉදිරියට යන්න.</p>
+
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="group p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-cyan-500/50 transition-all cursor-pointer">
+                    <div class="w-12 h-12 rounded-lg bg-cyan-500/20 flex items-center justify-center mb-4 text-cyan-400 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-microchip text-xl"></i>
+                    </div>
+                    <h3 class="text-white font-bold text-lg mb-2">Components</h3>
+                    <p class="text-gray-500 text-sm">Sensors, Modules, and Boards.</p>
+                </div>
+
+                <div class="group p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-emerald-500/50 transition-all cursor-pointer">
+                    <div class="w-12 h-12 rounded-lg bg-emerald-500/20 flex items-center justify-center mb-4 text-emerald-400 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-box-open text-xl"></i>
+                    </div>
+                    <h3 class="text-white font-bold text-lg mb-2">Starter Kits</h3>
+                    <p class="text-gray-500 text-sm">Everything you need to begin.</p>
+                </div>
+            </div>
+
+            <div class="mt-8 pt-6 border-t border-white/5 flex justify-end">
+                <button onclick="closeInterface()" class="px-6 py-2 text-gray-400 hover:text-white transition-colors">Close Window</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function openInterface() {
+        const modal = document.getElementById('mainInterface');
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        // පිටුව scroll වීම නතර කිරීමට
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeInterface() {
+        const modal = document.getElementById('mainInterface');
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+        // නැවත scroll කිරීමට ඉඩ දීම
+        document.body.style.overflow = 'auto';
+    }
+
+    // Modal එකෙන් පිටත click කළොත් එය වැසීමට
+    window.onclick = function(event) {
+        const modal = document.getElementById('mainInterface');
+        if (event.target == modal) {
+            closeInterface();
+        }
+    }
+</script>
     <!-- Categories Sidebar & Products -->
     <section id="products" class="py-20 bg-tech-dark">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
