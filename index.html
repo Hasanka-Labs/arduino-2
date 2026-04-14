@@ -207,7 +207,7 @@
 </section>
 
 <div id="mainInterface" class="fixed inset-0 z-[100] hidden items-center justify-center p-4 bg-black/90 backdrop-blur-lg">
-    <div class="relative w-full max-w-3xl bg-[#0a0f1a] border border-cyan-500/30 rounded-3xl p-8 shadow-2xl overflow-hidden min-h-[400px]">
+    <div class="relative w-full max-w-3xl bg-[#0a0f1a] border border-cyan-500/30 rounded-3xl p-8 shadow-2xl overflow-hidden min-h-[450px]">
         
         <div class="absolute -top-24 -right-24 w-48 h-48 bg-cyan-500/10 blur-3xl"></div>
         
@@ -246,68 +246,113 @@
             <h2 class="text-2xl font-bold text-white mb-6">Arduino <span class="text-cyan-400">Components</span></h2>
             
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div class="flex items-center justify-between p-4 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all">
+                <div onclick="openDetails('Arduino Uno R3')" class="flex items-center justify-between p-4 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all cursor-pointer">
                     <div class="flex items-center gap-4">
-                        <div class="w-10 h-10 bg-cyan-500/10 rounded flex items-center justify-center text-cyan-400">
-                            <i class="fas fa-microchip"></i>
-                        </div>
+                        <div class="w-10 h-10 bg-cyan-500/10 rounded flex items-center justify-center text-cyan-400"><i class="fas fa-microchip"></i></div>
                         <span class="text-white font-medium">Arduino Uno R3</span>
                     </div>
                     <span class="text-cyan-400 font-bold">Rs. 2,000</span>
                 </div>
 
-                <div class="flex items-center justify-between p-4 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all">
+                <div onclick="openDetails('Ultrasonic Sensor')" class="flex items-center justify-between p-4 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all cursor-pointer">
                     <div class="flex items-center gap-4">
-                        <div class="w-10 h-10 bg-cyan-500/10 rounded flex items-center justify-center text-cyan-400">
-                            <i class="fas fa-satellite-dish"></i>
-                        </div>
+                        <div class="w-10 h-10 bg-cyan-500/10 rounded flex items-center justify-center text-cyan-400"><i class="fas fa-satellite-dish"></i></div>
                         <span class="text-white font-medium">Ultrasonic Sensor</span>
                     </div>
                     <span class="text-cyan-400 font-bold">Rs. 400</span>
                 </div>
-                <div class="flex items-center justify-between p-4 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all">
+
+                <div onclick="openDetails('ESP 32 Board')" class="flex items-center justify-between p-4 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all cursor-pointer">
                     <div class="flex items-center gap-4">
-                        <div class="w-10 h-10 bg-cyan-500/10 rounded flex items-center justify-center text-cyan-400">
-                            <i class="fas fa-satellite-dish"></i>
-                        </div>
+                        <div class="w-10 h-10 bg-cyan-500/10 rounded flex items-center justify-center text-cyan-400"><i class="fas fa-wifi"></i></div>
                         <span class="text-white font-medium">ESP 32 Board</span>
                     </div>
-                    <span class="text-cyan-400 font-bold">Rs.1800</span>
+                    <span class="text-cyan-400 font-bold">Rs. 1,800</span>
                 </div>
-                     <div class="flex items-center justify-between p-4 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all">
+
+                <div onclick="openDetails('L298N Motor Driver')" class="flex items-center justify-between p-4 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all cursor-pointer">
                     <div class="flex items-center gap-4">
-                        <div class="w-10 h-10 bg-cyan-500/10 rounded flex items-center justify-center text-cyan-400">
-                            <i class="fas fa-satellite-dish"></i>
-                        </div>
+                        <div class="w-10 h-10 bg-cyan-500/10 rounded flex items-center justify-center text-cyan-400"><i class="fas fa-car"></i></div>
                         <span class="text-white font-medium">L298N Motor Driver</span>
                     </div>
-                    <span class="text-cyan-400 font-bold">Rs.450</span>
+                    <span class="text-cyan-400 font-bold">Rs. 450</span>
                 </div>
-                   <div class="flex items-center justify-between p-4 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all">
+
+                <div onclick="openDetails('HC-05 Bluetooth Module')" class="flex items-center justify-between p-4 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all cursor-pointer">
                     <div class="flex items-center gap-4">
-                        <div class="w-10 h-10 bg-cyan-500/10 rounded flex items-center justify-center text-cyan-400">
-                            <i class="fas fa-satellite-dish"></i>
-                        </div>
+                        <div class="w-10 h-10 bg-cyan-500/10 rounded flex items-center justify-center text-cyan-400"><i class="fab fa-bluetooth-b"></i></div>
                         <span class="text-white font-medium">HC-05 Bluetooth Module</span>
                     </div>
-                    <span class="text-cyan-400 font-bold">Rs.850</span>
+                    <span class="text-cyan-400 font-bold">Rs. 850</span>
                 </div>
-                
-                </div>
+            </div>
         </div>
 
+        <div id="layer3" class="hidden relative z-10 text-left">
+            <button onclick="showLayer(2)" class="flex items-center gap-2 text-cyan-400 mb-6 hover:text-cyan-300 transition-colors">
+                <i class="fas fa-arrow-left"></i> Back to Components
+            </button>
+            
+            <div class="flex flex-col md:flex-row gap-8 items-start mb-8">
+                <div class="w-full md:w-1/3 aspect-square bg-white/5 rounded-2xl border border-white/10 flex items-center justify-center">
+                    <i id="detailIcon" class="fas fa-microchip text-6xl text-cyan-400"></i>
+                </div>
+                <div class="flex-1">
+                    <h2 id="detailName" class="text-3xl font-bold text-white mb-2"></h2>
+                    <p id="detailPrice" class="text-2xl text-cyan-400 font-mono mb-4"></p>
+                    <div class="p-4 bg-white/5 rounded-xl border border-white/10">
+                        <h4 class="text-xs font-bold text-gray-500 uppercase mb-2">Product Information</h4>
+                        <p id="detailDesc" class="text-gray-300 text-sm leading-relaxed"></p>
+                    </div>
+                </div>
+            </div>
+            <button onclick="closeInterface()" class="w-full py-4 bg-cyan-500 hover:bg-cyan-400 text-black font-bold rounded-xl transition-all">
+                Close & Continue
+            </button>
+        </div>
     </div>
 </div>
 
 <script>
     const modal = document.getElementById('mainInterface');
-    const layer1 = document.getElementById('layer1');
-    const layer2 = document.getElementById('layer2');
+    const layers = [
+        document.getElementById('layer1'),
+        document.getElementById('layer2'),
+        document.getElementById('layer3')
+    ];
+
+    const componentData = {
+        "Arduino Uno R3": {
+            price: "Rs. 2,000",
+            desc: "The most robust board to start with. Features the ATmega328P microcontroller, 14 digital I/O pins, and 6 analog inputs. High quality and durable.",
+            icon: "fa-microchip"
+        },
+        "Ultrasonic Sensor": {
+            price: "Rs. 400",
+            desc: "HC-SR04 Ultrasonic Module provides 2cm - 400cm non-contact measurement functionality. High accuracy and stable readings.",
+            icon: "fa-satellite-dish"
+        },
+        "ESP 32 Board": {
+            price: "Rs. 1,800",
+            desc: "A powerful, generic Wi-Fi + BT + BLE MCU module that targets a wide variety of applications, from low-power sensor networks to the most demanding tasks.",
+            icon: "fa-wifi"
+        },
+        "L298N Motor Driver": {
+            price: "Rs. 450",
+            desc: "High power motor driver module for driving DC and Stepper motors. Ideal for robotics projects like Bluetooth-controlled cars.",
+            icon: "fa-car"
+        },
+        "HC-05 Bluetooth Module": {
+            price: "Rs. 850",
+            desc: "Designed for transparent wireless serial connection setup. Easy to use with Arduino to control projects via Android smartphone apps.",
+            icon: "fa-bluetooth-b"
+        }
+    };
 
     function openInterface() {
         modal.classList.remove('hidden');
         modal.classList.add('flex');
-        showLayer(1); // සෑම විටම මුලින්ම පෙන්වන්න
+        showLayer(1);
         document.body.style.overflow = 'hidden';
     }
 
@@ -317,21 +362,24 @@
         document.body.style.overflow = 'auto';
     }
 
-    function showLayer(layerNumber) {
-        if (layerNumber === 1) {
-            layer1.classList.remove('hidden');
-            layer2.classList.add('hidden');
-        } else if (layerNumber === 2) {
-            layer1.classList.add('hidden');
-            layer2.classList.remove('hidden');
+    function showLayer(num) {
+        layers.forEach((layer, index) => {
+            layer.classList.toggle('hidden', index + 1 !== num);
+        });
+    }
+
+    function openDetails(name) {
+        const data = componentData[name];
+        if (data) {
+            document.getElementById('detailName').innerText = name;
+            document.getElementById('detailPrice').innerText = data.price;
+            document.getElementById('detailDesc').innerText = data.desc;
+            document.getElementById('detailIcon').className = `fas ${data.icon} text-6xl text-cyan-400`;
+            showLayer(3);
         }
     }
 
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            closeInterface();
-        }
-    }
+    window.onclick = (e) => { if (e.target == modal) closeInterface(); }
 </script>
 
     <!-- Categories Sidebar & Products -->
