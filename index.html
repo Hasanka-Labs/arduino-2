@@ -258,19 +258,19 @@
     
     // Data for Components
     const components = {
-        "Arduino Uno R3": { price: "Rs. 2,000",  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJC53M8lcauFTvQvdd1nliDzGS_O7lqnEosg&s", desc: "High quality ATmega328P based microcontroller board." },
-        "Ultrasonic Sensor": { price: "Rs. 400", <img src="https://i.ytimg.com/vi/Ia6AKeZiu10/sddefault.jpg", desc: "HC-SR04 distance measuring sensor (2cm-400cm)." },
-        "ESP 32 Board": { price: "Rs. 1,800",  <img src="https://cdn-shop.adafruit.com/480x360/3269-04.jpg", desc: "WiFi + Bluetooth dual-core development board." },
-        "L298N Motor Driver": { price: "Rs. 450",  <img src="https://thepihut.com/cdn/shop/products/l298n-motor-stepper-driver-the-pi-hut-102708-15026935627838_1000x.jpg?v=1646445422", desc: "Dual H-bridge driver for DC and stepper motors." },
-        "HC-05 Bluetooth": { price: "Rs. 850", <img src="https://www.electronicwings.com/storage/PlatformSection/TopicContent/118/icon/HC-05%20Bluetooth%20Module.jpg", desc: "Wireless serial communication module." }
+        "Arduino Uno R3": { price: "Rs. 2,000", icon: "fa-microchip", desc: "High quality ATmega328P based microcontroller board." },
+        "Ultrasonic Sensor": { price: "Rs. 400", icon: "fa-satellite-dish", desc: "HC-SR04 distance measuring sensor (2cm-400cm)." },
+        "ESP 32 Board": { price: "Rs. 1,800", icon: "fa-wifi", desc: "WiFi + Bluetooth dual-core development board." },
+        "L298N Motor Driver": { price: "Rs. 450", icon: "fa-car", desc: "Dual H-bridge driver for DC and stepper motors." },
+        "HC-05 Bluetooth": { price: "Rs. 850", icon: "fa-bluetooth", desc: "Wireless serial communication module." }
     };
 
     // Data for Starter Kits
     const starterKits = {
-        "Basic Arduino Kit": { price: "Rs. 4,500",  <img src="https://store-usa.arduino.cc/cdn/shop/files/starterkit_02.unbox_1200x900.jpg?v=1773148489", desc: "Includes Arduino Uno, LEDs, Resistors, Breadboard, and Jumper wires. Perfect for school projects." },
-        "Ultimate Robotics Kit": { price: "Rs. 8,500",  <img src= "https://i.ytimg.com/vi/hI0UBvpuRTw/maxresdefault.jpg", desc: "Includes L298N, 4 Motors, Chassis, Ultrasonic sensor, and Bluetooth module. Build your own car!" },
-        "IoT Smart Home Kit": { price: "Rs. 7,200",  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeL5S4FwdZbXpXgMXi1JyPTkN8f9yz95T6ew&s", desc: "Includes ESP32, DHT11 Temp/Humidity sensor, Relay module, and PIR sensor." },
-        "Sensor Mega Pack": { price: "Rs. 3,800", <img src= "https://images-cdn.ubuy.qa/650c6913773bb8446d195cda-jdhlabstech-mega-starter-kit-ultra-100.jpg", desc: "10 essential sensors including IR, Sound, Water level, and Gas sensors." }
+        "Basic Arduino Kit": { price: "Rs. 4,500", icon: "fa-box-open", desc: "Includes Arduino Uno, LEDs, Resistors, Breadboard, and Jumper wires. Perfect for school projects." },
+        "Ultimate Robotics Kit": { price: "Rs. 8,500", icon: "fa-robot", desc: "Includes L298N, 4 Motors, Chassis, Ultrasonic sensor, and Bluetooth module. Build your own car!" },
+        "IoT Smart Home Kit": { price: "Rs. 7,200", icon: "fa-house-signal", desc: "Includes ESP32, DHT11 Temp/Humidity sensor, Relay module, and PIR sensor." },
+        "Sensor Mega Pack": { price: "Rs. 3,800", icon: "fa-microscope", desc: "10 essential sensors including IR, Sound, Water level, and Gas sensors." }
     };
 
     function openInterface() {
@@ -421,152 +421,54 @@
 
             <div class="grid md:grid-cols-3 gap-8">
                 <!-- Kit 1 -->
-        <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nexus Robotics | Bluetooth Car Kit</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <style>
-        .hero-bg { background-color: #050810; }
-        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(10px); }
-        .product-card:hover { transform: translateY(-5px); transition: all 0.3s ease; }
-        .gradient-text {
-            background: linear-gradient(to right, #22d3ee, #10b981);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-    </style>
-</head>
-<body class="bg-[#050810] text-white font-sans">
+                <div class="glass rounded-2xl overflow-hidden product-card group">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://i.ytimg.com/vi/hI0UBvpuRTw/maxresdefault.jpg">
+                        <div class="absolute top-4 right-4 bg-emerald-500 text-black text-xs font-bold px-3 py-1 rounded-full">SAVE 20%</div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="text-xs font-mono text-cyan-400 bg-cyan-400/10 px-2 py-1 rounded">BEGINNER</span>
+                            <span class="text-xs text-gray-500">15+ Components</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-white">Bluetooth Robot Car Kit</h3>
+                        <p class="text-gray-400 text-sm mb-4">Complete kit with L298N driver, HC-05 module, chassis, wheels, and Arduino code included.</p>
+                        
+                        <div class="flex items-center justify-between mb-4">
+                            <div>
+                                <span class="text-2xl font-bold text-white">Rs. 2,000</span>
+                                <span class="text-sm text-gray-500 line-through ml-2">Rs. 2,500</span>
+                            </div>
+                            <div class="flex text-yellow-400 text-sm">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
 
-<section class="min-h-screen flex flex-col items-center justify-center p-6 hero-bg">
-    
-    <h2 class="text-4xl font-bold mb-10 text-center">Featured <span class="gradient-text">Project Kits</span></h2>
+                        <div class="space-y-2 mb-4">
+                            <div class="flex items-center gap-2 text-xs text-gray-400">
+                                <i class="fas fa-check text-emerald-500"></i>
+                                <span>Pre-written Arduino code</span>
+                            </div>
+                            <div class="flex items-center gap-2 text-xs text-gray-400">
+                                <i class="fas fa-check text-emerald-500"></i>
+                                <span>Wiring diagram included</span>
+                            </div>
+                            <div class="flex items-center gap-2 text-xs text-gray-400">
+                                <i class="fas fa-check text-emerald-500"></i>
+                                <span>Android app provided</span>
+                            </div>
+                        </div>
 
-    <div class="glass rounded-2xl overflow-hidden product-card group cursor-pointer border border-white/10 max-w-sm" 
-         onclick="openDetails('Bluetooth Robot Car Kit')">
-        
-        <div class="relative h-64 overflow-hidden">
-            <img src="https://i.ytimg.com/vi/hI0UBvpuRTw/maxresdefault.jpg" class="w-full h-full object-cover transition-transform group-hover:scale-110">
-            <div class="absolute top-4 right-4 bg-emerald-500 text-black text-xs font-bold px-3 py-1 rounded-full">SAVE 20%</div>
-        </div>
-
-        <div class="p-6">
-            <div class="flex items-center gap-2 mb-2">
-                <span class="text-xs font-mono text-cyan-400 bg-cyan-400/10 px-2 py-1 rounded">BEGINNER</span>
-                <span class="text-xs text-gray-500">15+ Components</span>
-            </div>
-            <h3 class="text-xl font-bold mb-2 text-white">Bluetooth Robot Car Kit</h3>
-            <p class="text-gray-400 text-sm mb-4">Complete kit with L298N driver, HC-05 module, chassis, wheels, and Arduino code included.</p>
-            
-            <div class="flex items-center justify-between mb-4">
-                <div>
-                    <span class="text-2xl font-bold text-white">Rs. 2,000</span>
-                    <span class="text-sm text-gray-500 line-through ml-2">Rs. 2,500</span>
-                </div>
-                <div class="flex text-yellow-400 text-xs">
-                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                </div>
-            </div>
-
-            <button class="w-full py-3 bg-gradient-to-r from-cyan-600 to-cyan-500 hover:from-cyan-500 text-black font-bold rounded-lg transition-all">
-                View Project Details
-            </button>
-        </div>
-    </div>
-</section>
-
-<div id="detailModal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4 bg-black/90 backdrop-blur-lg">
-    <div class="relative w-full max-w-2xl bg-[#0a0f1a] border border-cyan-500/30 rounded-3xl p-8 shadow-2xl overflow-hidden">
-        
-        <button onclick="closeDetails()" class="absolute top-6 right-6 text-gray-400 hover:text-red-400 z-50">
-            <i class="fas fa-times text-2xl"></i>
-        </button>
-
-        <div class="flex flex-col md:flex-row gap-8 items-start">
-            <div class="w-32 h-32 md:w-40 md:h-40 bg-white/5 rounded-2xl flex items-center justify-center border border-white/10 shrink-0">
-                <i id="detailIcon" class="fas fa-robot text-6xl text-cyan-400"></i>
-            </div>
-            
-            <div class="flex-1">
-                <h2 id="detailName" class="text-3xl font-bold text-white mb-2"></h2>
-                <p id="detailPrice" class="text-2xl text-emerald-400 font-mono mb-4"></p>
-                
-                <div class="p-5 bg-white/5 rounded-xl border border-white/10">
-                    <h4 class="text-xs font-bold text-gray-500 uppercase mb-3 tracking-widest">Kit Overview & Items</h4>
-                    <p id="detailDesc" class="text-gray-300 text-sm leading-relaxed whitespace-pre-line"></p>
+                        <button onclick="addToCart('Bluetooth Robot Car Kit', 2000)" class="w-full py-3 bg-gradient-to-r from-cyan-600 to-cyan-500 hover:from-cyan-500 hover:to-cyan-400 text-black font-bold rounded-lg transition-all">
+                            Add to Cart
+                        </button>
+                    </div>
                 </div>
 
-                <button onclick="closeDetails()" class="mt-6 w-full py-3 bg-white/5 border border-white/20 hover:border-cyan-500 text-white font-bold rounded-xl transition-all">
-                    Close Details
-                </button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script>
-    // Project Data Object
-    const projectData = {
-        "Bluetooth Robot Car Kit": {
-            price: "Rs. 2,000",
-            icon: "fa-car-side",
-            desc: `මෙම Kit එක මගින් ස්මාර්ට් ජංගම දුරකථනයෙන් පාලනය කළ හැකි රොබෝ රථයක් නිර්මාණය කළ හැකිය.
-
-📦 ඇතුළත් ද්‍රව්‍ය (Included Items):
-• Arduino Uno R3 Development Board
-• L298N Dual H-Bridge Motor Driver
-• HC-05 Bluetooth Module
-• 2WD Robot Chassis, Wheels & Caster Wheel
-• 2 x Gear Motors
-• Jumper Wires & 9V Battery Connector
-
-🎁 විශේෂ වරප්‍රසාද:
-• සම්පූර්ණ Arduino Source Code එක
-• පැහැදිලි Wiring Diagram එක
-• රොබෝව පාලනය කරන Android App එක`
-        }
-    };
-
-    const modal = document.getElementById('detailModal');
-
-    // Function to open details
-    function openDetails(name) {
-        const data = projectData[name];
-        if (data) {
-            document.getElementById('detailName').innerText = name;
-            document.getElementById('detailPrice').innerText = data.price;
-            document.getElementById('detailDesc').innerText = data.desc;
-            document.getElementById('detailIcon').className = `fas ${data.icon} text-6xl text-cyan-400`;
-            
-            // Show modal
-            modal.classList.remove('hidden');
-            modal.classList.add('flex');
-            document.body.style.overflow = 'hidden'; // Stop scrolling
-        }
-    }
-
-    // Function to close details
-    function closeDetails() {
-        modal.classList.remove('flex');
-        modal.classList.add('hidden');
-        document.body.style.overflow = 'auto'; // Enable scrolling
-    }
-
-    // Close if clicked outside the content
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            closeDetails();
-        }
-    }
-</script>
-
-</body>
-</html>
                 <!-- Kit 2 -->
                 <div class="glass rounded-2xl overflow-hidden product-card group">
                     <div class="relative h-64 overflow-hidden">
